@@ -1,4 +1,5 @@
 import webapp2
+from google.appengine.ext import ndb
 
 class Search(ndb.Model):
     location1 = ndb.StringProperty()
