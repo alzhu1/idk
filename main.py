@@ -29,8 +29,10 @@ class MainHandler(webapp2.RequestHandler):
 class ResultsHandler(webapp2.RequestHandler):
     def get(self):
         keywords = self.request.get('keywords')
+        location = self.request.get('location')
         template_vals = {
             keywords: 'keywords'
+            lcoation: 'location'
         }
         template = jinja_environment.get_template('results.html')
         self.response.write(template.render(template_vals))
