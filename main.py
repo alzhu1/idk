@@ -40,7 +40,7 @@ class NopeHandler(webapp2.RequestHandler):
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
-    ('/results' ResultsHandler),
-    ('/specifics' SpecificsHandler),
-    ('/nope' NopeHandler)
+    ('/results', ResultsHandler),
+    ('/specifics', SpecificsHandler),
+    ('/nope', NopeHandler)
 ], debug=True)
