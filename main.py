@@ -7,13 +7,19 @@ template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_environment = jinja2.Environment(loader=jinja2.FileSystemLoader(template_dir))
 
 class Search(ndb.Model):
-    location1 = ndb.StringProperty()
+    location = ndb.StringProperty()
     keyword = ndb.StringProperty()
 
 class Results(ndb.Model):
     eventname = ndb.StringProperty()
-    location2 = ndb.StringProperty()
-    time = ndb.StringProperty()
+    location = ndb.StringProperty()
+    time = ndb.DateTimeProperty()
+
+class Upload(ndb.Model):
+    eventname = ndb.StringProperty()
+    location = ndb.StringProperty()
+    time = ndb.DateTimeProperty()
+
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
