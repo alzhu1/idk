@@ -48,13 +48,11 @@ class ResultsHandler(webapp2.RequestHandler):
         keywords = self.request.get('keywords')
         location = self.request.get('location')
         params = {
-            'term': 'food '+keywords,
+            'term': 'restaurants '+keywords,
             'lang': 'en'
         }
         request = client.search(location, **params)
         template_vals = {
-            'keywords': keywords,
-            'location': location,
             'request': request
         }
         logging.info(dir(request.businesses[0])) #REMOVE LATER

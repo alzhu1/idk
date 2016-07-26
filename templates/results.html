@@ -5,10 +5,14 @@
     <title>Results</title>
   </head>
   <body>
-    <img src="images/yelp_logo/iOS%20&%20Web/smallYelp.png">
+    <img src="images/yelp_logo/iOS%20&%20Web/yelp-logo-small.png">
     <ul>
     {% for business in request.businesses %}
+      {% if business.id == 'UNAVAILABLE_FOR_LOCATION' %}
+        <h1>Please refine your search and enter a valid location!<a href='/'> Go back</a></h1>
+      {% else %}
       <li><img src="{{business.image_url}}">{{business.name}} with a rating of {{business.rating}}</li>
+      {% endif %}
     {% endfor %}
   </ul>
   </body>
