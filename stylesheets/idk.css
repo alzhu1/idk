@@ -18,8 +18,10 @@ h3 {
 
 h2 {
   font-size: 25px;
-/*  position: relative;
-  left: 15px; */
+}
+
+h3 span { 
+    background-color: black;
 }
 
 #header2 {
