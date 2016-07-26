@@ -26,6 +26,10 @@ h3 {
   left: 15px; */
 }
 
+h2 span {
+    background-color: black;
+}
+
 #header2 {
   color: white;
   font-size: 25px;
