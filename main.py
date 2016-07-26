@@ -6,6 +6,7 @@ import os
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_environment = jinja2.Environment(loader=jinja2.FileSystemLoader(template_dir))
 
+API_KEY = LTaCUjkWSPDy9gnmJRLM7g
 
 class Search(ndb.Model):
     location = ndb.StringProperty()
@@ -20,12 +21,23 @@ class Upload(ndb.Model):
     eventname = ndb.StringProperty()
     location = ndb.StringProperty()
     time = ndb.DateTimeProperty()
-
+    info = ndb.StringProperty()
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('home.html')
         self.response.write(template.render())
+
+    def post(self):
+        eventname = self.request.get('eventname')
+        location = self.request.get('location')
+        time = self.request.get('time')
+        info = self.request.get('info')
+
+        upload = Upload(eventname=eventname, location=location, time=time, info=info)
+        upload.put()
+
+        self.redirect('/nope')
 
 class ResultsHandler(webapp2.RequestHandler):
     def get(self):
