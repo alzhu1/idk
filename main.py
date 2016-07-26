@@ -93,7 +93,7 @@ class NopeHandler(webapp2.RequestHandler):
         events = {'eventinfo': eventinfo}
 
         template = jinja_environment.get_template('nope.html')
-        self.response.write(template.render(event))
+        self.response.write(template.render(events))
 
     def post(self):
         eventname = self.request.get('eventname')
