@@ -4,8 +4,11 @@
     <title>IDK Home</title>
     <link rel="stylesheet" href="stylesheets/idk.css">
   </head>
+
   <body>
-    <h1>IDK, what do you want to do?</h1>
+    <div id=headerblock>
+      <h1>IDK, what do you want to do?</h1>
+    </div>
     <center><h3>idk-wtd = I don't know what to do!</h3></center>
     <br>
     <br>
@@ -13,7 +16,7 @@
       <div id="left" style="float:left; width:50%;"> <center>
         <h2 id=header1>Enter your street address and some idea<br> of what you feel like doing:</h2></center>
         <center><form type="post" action="/results" id=form1>
-          <input type="text" name="location" placeholder="Enter Your Location" required><br><br>
+          <input id=move type="text" name="location" placeholder="Enter Your Location" required><br><br>
           <input type="text" name="keywords" placeholder="Type in Keywords" required><br><br>
           <button class="button"><span>Search</span></button>
         </form></center>
@@ -21,10 +24,9 @@
       <div id="right" style="float:right; width:50%;">
         <center><h2 id=header2>Do you have any ideas of stuff<br> to do that you want to share with others?</h2>
         <form method="post" action="/" id=form2>
-          <input type='text' name='eventname' placeholder='Enter Event Name'><br><br>
-          <input type='text' name='location' placeholder='Enter Location'><br><br>
-          <input type='datetime' name='date' placeholder='Enter Date'><br><br>
-          <textarea name="info" rows=5 cols=40 placeholder="Enter More Information Here"></textarea><br>
+            <input type='text' name='eventname' placeholder='Enter Event Name'><br><br>
+            <input type='text' name='location' placeholder='Enter Event Location'><br><br>
+            <textarea name="info" rows=5 cols=40 placeholder="Enter More Information Here"></textarea><br>
           <button class="button"><span>Post</span></button>
         </form> </div></center>
       </div>
