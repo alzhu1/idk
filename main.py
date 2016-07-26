@@ -6,7 +6,6 @@ import os
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_environment = jinja2.Environment(loader=jinja2.FileSystemLoader(template_dir))
 
-API_KEY = LTaCUjkWSPDy9gnmJRLM7g
 
 class Search(ndb.Model):
     location = ndb.StringProperty()
