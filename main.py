@@ -67,7 +67,7 @@ class ResultsHandler(webapp2.RequestHandler):
             'location': location,
             'request': request
         }
-        logging.info(dir(request.businesses[0]))
+        logging.info(dir(request.businesses[0])) #REMOVE LATER
         template = jinja_environment.get_template('results.html')
         self.response.write(template.render(template_vals))
 

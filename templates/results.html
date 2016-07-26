@@ -9,7 +9,6 @@
     <ul>
     {% for business in request.businesses %}
       <li><img src="{{business.image_url}}">{{business.name}} with a rating of {{business.rating}}</li>
-      <li>{{business.phone}}</li>
     {% endfor %}
   </ul>
   </body>
