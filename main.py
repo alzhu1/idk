@@ -2,8 +2,10 @@ import webapp2
 from google.appengine.ext import ndb
 import jinja2
 import os
+from google.appengine.api import urlfetch
 from yelp.client import Client
 from yelp.oauth1_authenticator import Oauth1Authenticator
+import logging
 
 auth = Oauth1Authenticator(
     consumer_key='LTaCUjkWSPDy9gnmJRLM7g',
@@ -55,9 +57,15 @@ class ResultsHandler(webapp2.RequestHandler):
     def get(self):
         keywords = self.request.get('keywords')
         location = self.request.get('location')
+        params = {
+            'term': 'food',
+            'lang': 'en'
+        }
+        request = client.search('San Francisco', **params)
         template_vals = {
             'keywords': keywords,
-            'location': location
+            'location': location,
+            'request': request
         }
         template = jinja_environment.get_template('results.html')
         self.response.write(template.render(template_vals))
