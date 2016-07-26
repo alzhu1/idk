@@ -5,7 +5,6 @@
     <title>Results</title>
   </head>
   <body>
-    <img src="images/yelp_logo/iOS%20&%20Web/yelp-logo-small.png">
     <ul>
     {% for business in request.businesses %}
       {% if business.id == 'UNAVAILABLE_FOR_LOCATION' %}
@@ -15,6 +14,11 @@
       <li>{{ business.distance*0.000621371|round(3) }} miles</li>
       {% endif %}
     {% endfor %}
-  </ul>
+    </ul>
+    <br>
+    <br>
+    <br>
+    powered by <img src="images/yelp_logo/iOS%20&%20Web/yelp-logo-small.png">
   </body>
+  <script src="background.js"></script>
 </html>

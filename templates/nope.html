@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Nope</title>
-  </head>
-  <body>
+<head>
+  <title>Nope</title>
+</head>
+<body>
 
-    <h1>IDK then, maybe you should try these other ideas:</h1>
+  <h1>IDK then, maybe you should try these other ideas:</h1><br>
 
-    </form>
-  </body>
+    {% for event in events %}
+    {{events.eventname}}<br>
+    {{events.location}}<br>
+    {{events.date}}<br>
+    {{events.info}}<br><br><br>
+    {% end for%}
+
+</body>
+<script src="background.js"></script>
 </html>
