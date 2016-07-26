@@ -9,6 +9,8 @@
     <ul>
     {% for business in request.businesses %}
       <li><img src="{{business.image_url}}">{{business.name}} with a rating of {{business.rating}}</li>
+      {% if business.id == 'UNAVAILABLE_FOR_LOCATION' %}
+        <h1>Please refine your search and enter a valid location!<a href='/'> Go back</a></h1>
     {% endfor %}
   </ul>
   </body>
