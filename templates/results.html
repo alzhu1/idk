@@ -5,15 +5,25 @@
     <title>Results</title>
   </head>
   <body>
-    <img src="images/yelp_logo/iOS%20&%20Web/yelp-logo-small.png">
     <ul>
     {% for business in request.businesses %}
       {% if business.id == 'UNAVAILABLE_FOR_LOCATION' %}
         <h1>Please refine your search and enter a valid location!<a href='/'> Go back</a></h1>
       {% else %}
-      <li><img src="{{business.image_url}}"><a href="{{business.url}}">{{business.name}}</a> with a rating of {{business.rating}}</li>
+      <li><img src="{{business.image_url}}"><a href="{{business.url}}">{{business.name}}</a> with a rating of <img src="{{business.rating_img_url}}"></li>
+      <li>
+        {% for piece in business.location.display_address%}
+          {{ piece }}
+        {% endfor %}
+      </li><br>
       {% endif %}
     {% endfor %}
-  </ul>
+    </ul>
+    <br>
+    <br>
+    <br>
+    powered by <img src="images/yelp_logo/iOS%20&%20Web/yelp-logo-small.png">
   </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"> </script> 
+  <script src="background.js"></script>
 </html>
