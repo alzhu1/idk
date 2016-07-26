@@ -6,7 +6,7 @@
   </head>
   <body>
     <ul>
-    {% for business in request.businesses %}
+    {% for business in food.businesses %}
       {% if business.id == 'UNAVAILABLE_FOR_LOCATION' %}
         <h1>Please refine your search and enter a valid location!<a href='/'> Go back</a></h1>
       {% else %}
