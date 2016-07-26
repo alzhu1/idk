@@ -67,7 +67,7 @@ class ResultsHandler(webapp2.RequestHandler):
             'foods': foods,
             'events': events
         }
-        logging.info(dir(foods.businesses[0])) #REMOVE LATER
+        logging.info(type(foods)) #REMOVE LATER
         template = jinja_environment.get_template('results.html')
         self.response.write(template.render(template_vals))
 
