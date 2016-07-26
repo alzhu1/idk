@@ -1,7 +1,7 @@
 import webapp2
-from google.appengine.ext import ndb
 import jinja2
 import os
+from google.appengine.ext import ndb
 from google.appengine.api import urlfetch
 from yelp.client import Client
 from yelp.oauth1_authenticator import Oauth1Authenticator
