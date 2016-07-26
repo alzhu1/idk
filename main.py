@@ -6,11 +6,7 @@ import os
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_environment = jinja2.Environment(loader=jinja2.FileSystemLoader(template_dir))
 
-<<<<<<< HEAD
 API_KEY = LTaCUjkWSPDy9gnmJRLM7g
-=======
-API_QUERY = 'https://api.yelp.com/v2/search/'
->>>>>>> 2bd929c4d910e06cb357bff46bb1b27826851cae
 
 class Search(ndb.Model):
     location = ndb.StringProperty()
@@ -32,17 +28,6 @@ class MainHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('home.html')
         self.response.write(template.render())
 
-    def post(self):
-        eventname = self.request.get('eventname')
-        location = self.request.get('location')
-        time = self.request.get('time')
-        info = self.request.get('info')
-
-        upload = Upload(eventname=eventname, location=location, time=time, info=info)
-        upload.put()
-
-        self.redirect('/nope')
-
 class ResultsHandler(webapp2.RequestHandler):
     def get(self):
         keywords = self.request.get('keywords')
@@ -63,6 +48,17 @@ class NopeHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('nope.html')
         self.response.write(template.render())
+
+    def post(self):
+        eventname = self.request.get('eventname')
+        location = self.request.get('location')
+        time = datetime(int(self.request.get('time')))
+        info = self.request.get('info')
+
+        upload = Upload(eventname=eventname, location=location, time=time, info=info)
+        upload.put()
+
+        self.redirect('/nope')
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
