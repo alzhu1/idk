@@ -11,7 +11,7 @@
         <h1>Please refine your search and enter a valid location!<a href='/'> Go back</a></h1>
       {% else %}
       <li><img src="{{business.image_url}}"><a href="{{business.url}}">{{business.name}}</a> with a rating of {{business.rating}}</li>
-      <li>{{ business.distance*0.000621371|round(3) }} miles</li>
+      <li>{{ (business.distance*0.000621371)|round(2) }} miles</li>
       {% endif %}
     {% endfor %}
     </ul>
