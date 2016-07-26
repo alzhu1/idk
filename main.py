@@ -51,7 +51,8 @@ class ResultsHandler(webapp2.RequestHandler):
             'term': 'restaurants '+keywords,
             'lang': 'en',
             'category_filter': 'restaurants',
-            'radius_filter': 8046
+            'radius_filter': 8046,
+            'sort': 1
         }
         request = client.search(location, **params)
         template_vals = {
