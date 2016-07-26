@@ -9,23 +9,29 @@ h1 {
 }
 
 h3 {
+  position: absolute;
+  top: 60px;
+  left: 465px;
   font-style: italic;
   font-size: 15px;
   color: white;
-  display: block;
-  background: darkblue;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
 
-h2 {
+#header1 {
+  color: white;
   font-size: 25px;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 /*  position: relative;
   left: 15px; */
 }
 
 #header2 {
+  color: white;
   font-size: 25px;
   position:relative;
   left: 115px;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
 
 
