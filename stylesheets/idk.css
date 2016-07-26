@@ -11,15 +11,15 @@ h1 {
 h3 {
   font-style: italic;
   font-size: 15px;
-  position: absolute;
-  top: 62px;
-  left: 450px;
+  color: white;
+  display: block;
+  background: darkblue;
 }
 
 h2 {
   font-size: 25px;
-  position: relative;
-  left: 15px;
+/*  position: relative;
+  left: 15px; */
 }
 
 #header2 {
@@ -85,7 +85,6 @@ h2 {
 .button:hover span:after {
   opacity: 1;
   right: 0;
-}
 }
 
 body {

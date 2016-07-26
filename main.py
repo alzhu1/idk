@@ -47,18 +47,18 @@ class ResultsHandler(webapp2.RequestHandler):
     def get(self):
         keywords = self.request.get('keywords')
         location = self.request.get('location')
-        params = {
+        food_params = {
             'term': 'restaurants '+keywords,
             'lang': 'en',
             'category_filter': 'restaurants',
             'radius_filter': 8046,
             'sort': 1
         }
-        request = client.search(location, **params)
+        food = client.search(location, **food_params)
         template_vals = {
-            'request': request
+            'food': food
         }
-        logging.info(dir(request.businesses[0])) #REMOVE LATER
+        logging.info(dir(food.businesses[0])) #REMOVE LATER
         template = jinja_environment.get_template('results.html')
         self.response.write(template.render(template_vals))
 
