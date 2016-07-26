@@ -2,11 +2,22 @@ import webapp2
 from google.appengine.ext import ndb
 import jinja2
 import os
+from yelp.client import Client
+from yelp.oauth1_authenticator import Oauth1Authenticator
+
+auth = Oauth1Authenticator(
+    consumer_key='LTaCUjkWSPDy9gnmJRLM7g',
+    consumer_secret='7pH_DdgonqV6EAqVXdi8Mn934cU',
+    token='mSOKE6DC4J2fzx3MF94h0NASZyMWCYY1',
+    token_secret='ArwcfHSMGm2taVxzqxx8LF5isCg'
+)
+
+client = Client(auth)
 
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_environment = jinja2.Environment(loader=jinja2.FileSystemLoader(template_dir))
 
-API_KEY = LTaCUjkWSPDy9gnmJRLM7g
+API_KEY = 'LTaCUjkWSPDy9gnmJRLM7g'
 API_QUERY = 'https://api.yelp.com/v2/search/'
 
 class Search(ndb.Model):
