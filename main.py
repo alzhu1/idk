@@ -66,15 +66,20 @@ class SpecificsHandler(webapp2.RequestHandler):
 
 class NopeHandler(webapp2.RequestHandler):
     def get(self):
+        eventinfo = Upload.query().fetch()
+
+        events = {'eventinfo': eventinfo}
+
         template = jinja_environment.get_template('nope.html')
-        self.response.write(template.render())
+        self.response.write(template.render(event))
 
     def post(self):
         eventname = self.request.get('eventname')
         location = self.request.get('location')
+        date = self.request.get('date')
         info = self.request.get('info')
 
-        upload = Upload(eventname=eventname, location=location, time=time, info=info)
+        upload = Upload(eventname=eventname, location=location, date=date, info=info)
         upload.put()
 
         self.redirect('/nope')
