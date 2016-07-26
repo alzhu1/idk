@@ -1,7 +1,7 @@
 import webapp2
-from google.appengine.ext import ndb
 import jinja2
 import os
+from google.appengine.ext import ndb
 from google.appengine.api import urlfetch
 from yelp.client import Client
 from yelp.oauth1_authenticator import Oauth1Authenticator
@@ -31,7 +31,6 @@ class Search(ndb.Model):
 class Results(ndb.Model):
     eventname = ndb.StringProperty()
     location = ndb.StringProperty()
-    time = ndb.DateTimeProperty()
 
 class Upload(ndb.Model):
     eventname = ndb.StringProperty()
@@ -42,6 +41,17 @@ class MainHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('home.html')
         self.response.write(template.render())
+
+    def post(self):
+        eventname = self.request.get('eventname')
+        location = self.request.get('location')
+        date = self.request.get('date')
+        info = self.request.get('info')
+
+        upload = Upload(eventname=eventname, location=location, date=date, info=info)
+        upload.put()
+
+        self.redirect('/nope')
 
 class ResultsHandler(webapp2.RequestHandler):
     def get(self):
@@ -67,7 +77,7 @@ class ResultsHandler(webapp2.RequestHandler):
             'foods': foods,
             'events': events
         }
-        logging.info(dir(foods.businesses[0])) #REMOVE LATER
+        logging.info(type(foods)) #REMOVE LATER
         template = jinja_environment.get_template('results.html')
         self.response.write(template.render(template_vals))
 
@@ -83,7 +93,7 @@ class NopeHandler(webapp2.RequestHandler):
         events = {'eventinfo': eventinfo}
 
         template = jinja_environment.get_template('nope.html')
-        self.response.write(template.render(event))
+        self.response.write(template.render(events))
 
     def post(self):
         eventname = self.request.get('eventname')
