@@ -36,7 +36,6 @@ class Results(ndb.Model):
 class Upload(ndb.Model):
     eventname = ndb.StringProperty()
     location = ndb.StringProperty()
-    time = ndb.DateTimeProperty()
     info = ndb.StringProperty()
 
 class MainHandler(webapp2.RequestHandler):
@@ -75,7 +74,6 @@ class NopeHandler(webapp2.RequestHandler):
     def post(self):
         eventname = self.request.get('eventname')
         location = self.request.get('location')
-        time = datetime(int(self.request.get('time')))
         info = self.request.get('info')
 
         upload = Upload(eventname=eventname, location=location, time=time, info=info)
