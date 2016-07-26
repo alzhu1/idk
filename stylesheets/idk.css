@@ -20,14 +20,12 @@ h2 {
   font-size: 25px;
 }
 
-h2 span { 
+h2 span {
     background-color: black;
 }
 
 #header2 {
   font-size: 25px;
-  position:relative;
-  left: 115px;
 }
 
 
