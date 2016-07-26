@@ -49,7 +49,8 @@ class ResultsHandler(webapp2.RequestHandler):
         location = self.request.get('location')
         params = {
             'term': 'restaurants '+keywords,
-            'lang': 'en'
+            'lang': 'en',
+            'category_filter': 'restaurants'
         }
         request = client.search(location, **params)
         template_vals = {
