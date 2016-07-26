@@ -6,7 +6,11 @@ import os
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_environment = jinja2.Environment(loader=jinja2.FileSystemLoader(template_dir))
 
+<<<<<<< HEAD
 API_KEY = LTaCUjkWSPDy9gnmJRLM7g
+=======
+API_QUERY = 'https://api.yelp.com/v2/search/'
+>>>>>>> 2bd929c4d910e06cb357bff46bb1b27826851cae
 
 class Search(ndb.Model):
     location = ndb.StringProperty()
