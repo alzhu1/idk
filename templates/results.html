@@ -8,7 +8,8 @@
     <img src="images/yelp_logo/iOS & Web/smallYelp.png">
     <ul>
     {% for business in request.businesses %}
-      <li>{{business.name}} with a rating of {{business.rating}}</li>
+      <li><img src="{{business.image_url}}">{{business.name}} with a rating of {{business.rating}}</li>
+      <li>{{business.phone}}</li>
     {% endfor %}
   </ul>
   </body>
