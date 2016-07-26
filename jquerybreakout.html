@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jquery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+    $(document).ready(setup);
+    function setup() {
+        $('#searchButton').click(performSearch);
+    }
+    function performSearch(event) {
+      var query = $('#searchField').val();
+      var API_URL = 'https://www.googleapis.com/books/v1/volumes?q=';
+      var queryUrl = API_URL + query;
+      $.getJSON(queryUrl, displayResults);
+    }
+    function displayResults(json) {
+
+      var results = $('results');
+      results.html('');
+
+      console.log(json);
+      var items = json.items;
+      for (var i = 0; i < items.length; i++) {
+        var item = items[i];
+        var info = item.volumeInfo;
+        if (!info.authors) {
+          info.authors =[];
+        }
+        if (!info.imageLinks) {
+          info.imageLinks = [];
+        }
+        var title = info.title;
+        var authors = info.author;
+        var thumbnail = info.imageLinks.thumbnail;
+        var previewLink = info.previewLink;
+        results.append(
+          $('<a href=" ' + previewLink + '" target="_blank"><img src="' + thumbnail +'>"'),
+          $('<h2>' + title + '</h2>'),
+          $('<h3>' + authors +'</h3>')
+        );
+        console.log(title);
+      }
+    }
+    </script>
+  </head>
+
+  <body>
+
+    <input type ="text" id="searchField">
+    <button id="searchButton">Search</button>
+    <div id="results"></div>
+  </body>
+
+</html>
+
+<!-- 1. set up script stuff in head.
+2. give input stuff an id so you can access it.
+3. select element with $('#elementID').click(fuhnctionName);
