@@ -9,6 +9,10 @@
   </head>
   <body>
     <h1>IDK, what do you want to do?</h1>
+    <center><h3>idk-wtd = I don't know what to do!</h3></center>
+    <br>
+    <br>
+    <h2>Enter your location and any keywords of what you might feel like doing!</h2>
     <form type="post" action="/results">
       <input type="text" name="location" placeholder="Type in location" required><br>
       <input type="text" name="keywords" placeholder="Type in keywords" required><br>
@@ -17,11 +21,13 @@
     <br>
     <br>
     <br>
+    <h2>If you have any ideas of stuff to do, add them here!</h2>
     <form method="post" action="/">
       <input type='text' name='eventname' placeholder='Enter Event Name'><br>
       <input type='text' name='location' placeholder='Enter Location'><br>
       <input type='datetime' name='time' placeholder='Enter Date and Time'><br>
       <textarea name="info" placeholder="Enter More Information Here"></textarea><br>
       <button>Post</button>
-    </body>
+    </form>
+  </body>
 </html>
