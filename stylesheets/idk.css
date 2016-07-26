@@ -11,6 +11,9 @@ h1 {
 h3 {
   font-style: italic;
   font-size: 15px;
+  color: white;
+  display: block;
+  background: darkblue;
 }
 
 h2 {
@@ -82,7 +85,6 @@ h2 {
 .button:hover span:after {
   opacity: 1;
   right: 0;
-}
 }
 
 body {
