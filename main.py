@@ -73,7 +73,7 @@ class ResultsHandler(webapp2.RequestHandler):
         food_params = {
             'term': keywords,
             'lang': 'en',
-            'category_filter': 'restaurants,food',
+            'category_filter': 'restaurants',
             'radius_filter': 8046,
             'sort': 1,
             'offset': 0+page*20
