@@ -3,47 +3,64 @@
   <head>
     <title>Results</title>
   </head>
-  <body>
-      <ul class="food">
-      {% for business in foods.businesses %}
-        {% if business.id == 'UNAVAILABLE_FOR_LOCATION' %}
-          <h1>Please refine your search and enter a valid location!<a href='/'> Go back</a></h1>
-        {% else %}
-          <img src="{{business.image_url}}"><a href="{{business.url}}">{{business.name}}</a> with a rating of <img src="{{business.rating_img_url}}">
-          <br>
-            {% for piece in business.location.display_address%}
-              {{ piece }}
-            {% endfor %}
-          <br>
-          <br>
-        {% endif %}
-      {% endfor %}
-      </ul>
-      <br>
-      <br>
 
+  <style>
+li {
+  font-size: 20px;
+  text-decoration: underline;
+}
+p {
+  font-style: italic;
+}
+  </style>
 
-      <ul class="events">
-      {% for business in events.businesses %}
-        {% if business.id == 'UNAVAILABLE_FOR_LOCATION' %}
-          <h1>Please refine your search and enter a valid location!<a href='/'> Go back</a></h1>
-        {% else %}
-          <img src="{{business.image_url}}"><a href="{{business.url}}">{{business.name}}</a> with a rating of <img src="{{business.rating_img_url}}">
-          <br>
-            {% for piece in business.location.display_address%}
-              {{ piece }}
-            {% endfor %}
-          <br>
-          <br>
-        {% endif %}
-      {% endfor %}
-      </ul>
+  <center><body>
+    <center><div id="container" style="width:100%;">
+      <div id="left" style="float:left; width:50%;">
+        <h2>Hungry? IDK. Here's some ideas:</h2>
+        <ul class="food">
+        {% for business in foods.businesses %}
+          {% if business.id == 'UNAVAILABLE_FOR_LOCATION' %}
+            <h1>Please refine your search and enter a valid location!<a href='/'> Go back</a></h1>
+          {% else %}
+            <a href="{{business.url}}">{{business.name}}</a><br><br><img src="{{business.image_url}}"><br>Yelp rating: &nbsp; <img src="{{business.rating_img_url}}">
+              <br>
+              {% for piece in business.location.display_address%}
+                <p>{{ piece }}</p>
+              {% endfor %}
+              <br>
+            <br>
+          {% endif %}
+        {% endfor %}
+        </ul>
+    </div></center>
+    <div id="container" style="width:100%;">
+      <div id="right" style="float:right; width:50%;"> <center>
+    <ul class="events">
+      <h2>IDK, Does any of this look cool?</h2>
+    {% for business in events.businesses %}
+      {% if business.id == 'UNAVAILABLE_FOR_LOCATION' %}
+        <h1>Please refine your search and enter a valid location!<a href='/'> Go back</a></h1>
+      {% else %}
+        <a href="{{business.url}}">{{business.name}}</a><br><br><img src="{{business.image_url}}"><br> Yelp rating: &nbsp; <img src="{{business.rating_img_url}}">
+          {% for piece in business.location.display_address%}
+            <p>{{ piece }}</p>
+          {% endfor %}
+        <br>
+        <br>
+      {% endif %}
+    {% endfor %}
+    </ul>
 
+    <br>
+  </div>
     <br>
     <br>
     <br>
+
     powered by <img src="images/yelp_logo/iOS%20&%20Web/yelp-logo-small.png">
-  </body>
+  </body></center>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"> </script>
   <script src="background.js"></script>
 </html>
