@@ -126,7 +126,36 @@ p {
   font-family: Tahoma, Verdana, Segoe, sans-serif;
 }
 
+#left {
+  float: left;
+  width: 49%;
+}
 
-#hungry {
-  width: 450px;
+#leftcolor {
+  margin-left: 25%;
+  max-width: 250px;
+  background: lightblue;
+  border: 2px solid blue;
+  border-radius: 10px
+}
+
+#right {
+  float: right;
+  width: 49%;
+}
+
+.food {
+  padding-left: 0px
+}
+
+#rightcolor {
+  margin-right: 25%;
+  max-width: 250px;
+  background: lightblue;
+  border: 2px solid blue;
+  border-radius: 10px
+}
+
+.events {
+  padding-left: 0px
 }
