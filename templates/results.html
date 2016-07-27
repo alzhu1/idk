@@ -5,9 +5,15 @@
       <link rel="stylesheet" href="stylesheets/idk.css">
   </head>
   <center><body>
+    <div id=headerblock>
+      <a href='/'><h1 id=headerblock>&#9788 IDK &#9788</h1></a>
+    </div>
+    <center><h3>what do you wanna do?</h3></center>
+    <br>
+    <br>
     <center><div id="container" style="width:100%;">
       <div id="left" style="float:left; width:50%;">
-        <h2>Hungry? IDK. Here's some ideas:</h2>
+        <h2 id=hungry>  Hungry?</h2>
         <ul class="food">
         {% for business in foods.businesses %}
           {% if business.id == 'UNAVAILABLE_FOR_LOCATION' %}
@@ -29,7 +35,7 @@
     <div id="container" style="width:100%;">
       <div id="right" style="float:right; width:50%;"> <center>
     <ul class="events">
-      <h2>IDK, Does any of this look cool?</h2>
+      <h2>  Events in your area:</h2>
     {% for business in yelp_events.businesses %}
       {% if business.id == 'UNAVAILABLE_FOR_LOCATION' %}
         <h1>Please refine your search and enter a valid location!<a href='/'> Go back</a></h1>
