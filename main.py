@@ -88,7 +88,7 @@ class ResultsHandler(webapp2.RequestHandler):
         event_params = {
             'term': keywords,
             'lang': 'en',
-            'category_filter': 'active,arts,eventservices', #maybe shopping?
+            'category_filter': 'active,arts', #maybe shopping?
             'radius_filter': 3219,
             'sort': 2,
             'offset': 0+page*10,
