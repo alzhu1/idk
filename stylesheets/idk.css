@@ -34,7 +34,8 @@ h3 {
 
 #header1 {
   color: white;
-  font-size: 25px;
+  font-size: 40px;
+  margin-top: 5px;
   text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
 
@@ -50,20 +51,20 @@ h2 span {
 
 
 #form1 {
-  width: 300px;
-  height: 200px;
-  padding: 5% 5% 5% 5%;
+  width: 500px;
+  height: 400px;
+  padding: 4% 4% 4% 4%;
   margin: 2% 2% 2% 2%;
   border: 10px solid darkblue;
   border-radius: 10px;
 }
 
 #move {
-  margin-top: 38px
+  margin-top: 15px
 }
 
 #form2 {
-  width: 300px;
+  width: 200px;
   height: 200px;
   padding: 5% 5% 5% 5%;
   margin: 2% 2% 2% 2%;
@@ -129,4 +130,12 @@ p {
 
 #hungry {
   width: 450px;
+}
+
+#nope {
+  width: 20em;  height: 5em;
+}
+
+#submitIdea {
+  width: 20em;  height: 5em;
 }
