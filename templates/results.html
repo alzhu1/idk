@@ -32,7 +32,7 @@
           {% endfor %}
           </ul>
           powered by <img src="/images/yelp_logo/iOSWeb/yelp-logo-small.png">
-        </div>
+        </div><br><br>
       </div>
     </center>
     <!-- <div style="width:100%;"> -->
@@ -54,18 +54,20 @@
             {% endfor %}
           </ul>
         </div>
-
     <br>
     <br>
     <br>
     <br>
-    <button class="button" id="nopeButton"><a href="/nope"><span><h2>IDK, I don't feel like doing any of this.</h2></span></button>
+    <button class="button" id="nopeButton"><a href="/nope"><h2>I don't feel like doing any of this</h2><span></span></button>
     <br>
     <br>
   <ul>
   {% for event in events['events']%}
     <img src="{{event['logo']['url']}}">
-    <li><a href="{{event['url']}}">{{event['name']['html']}}</a></li>
+    <a id=eventlink href="{{event['url']}}">{{event['name']['html']}}</a>
+    <br>
+    <br>
+    <br>
   {% endfor %}
   </ul>
   {% if page == 0 %}
