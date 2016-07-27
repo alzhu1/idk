@@ -108,3 +108,11 @@ h2 span {
 body {
   background-size: 100vw 100vh;
 }
+
+li {
+  font-size: 20px;
+  text-decoration: underline;
+}
+p {
+  font-style: italic;
+}
