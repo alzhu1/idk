@@ -11,53 +11,65 @@
     <center><h3>what do you wanna do?</h3></center>
     <br>
     <br>
-    <center><div id="container" style="width:100%;">
-      <div id="left" style="float:left; width:50%;">
-        <h2 id=hungry>  Hungry? &#127860;</h2>
-        <ul class="food">
-        {% for business in foods.businesses %}
-          {% if business.id == 'UNAVAILABLE_FOR_LOCATION' %}
-            <h1>Please refine your search and enter a valid location!<a href='/'> Go back</a></h1>
-          {% else %}
-            <a href="{{business.url}}">{{business.name}}</a><br><br><img src="{{business.image_url}}"><br>Yelp rating: &nbsp; <img src="{{business.rating_img_url}}">
+    <center><!-- <div style="width:100%;"> -->
+      <div id="left">
+        <div id=leftcolor>
+          <center><h2 id=hungry>Hungry? &#127860;</h2></center>
+          <ul class="food">
+          {% for business in foods.businesses %}
+            {% if business.id == 'UNAVAILABLE_FOR_LOCATION' %}
+              <h1>Please refine your search and enter a valid location!<a href='/'> Go back</a></h1>
+            {% else %}
+              <a href="{{business.url}}">{{business.name}}</a><br><br><img src="{{business.image_url}}"><br>Yelp rating: &nbsp; <img src="{{business.rating_img_url}}">
+                <br>
+                {% for piece in business.location.display_address%}
+                  <p>{{ piece }}</p>
+                {% endfor %}
+                <br>
               <br>
-              {% for piece in business.location.display_address%}
-                <p>{{ piece }}</p>
-              {% endfor %}
-              <br>
-            <br>
-          {% endif %}
-        {% endfor %}
-        </ul>
-        powered by <img src="/images/yelp_logo/iOSWeb/yelp-logo-small.png">
-      </div>
-    </div></center>
-    <div id="container" style="width:100%;">
-      <div id="right" style="float:right; width:50%;"> <center>
-    <ul class="events">
-      <h2>  Events in your area:</h2>
-    {% for business in yelp_events.businesses %}
-      {% if business.id == 'UNAVAILABLE_FOR_LOCATION' %}
-        <h1>Please refine your search and enter a valid location!<a href='/'> Go back</a></h1>
-      {% else %}
-        <a href="{{business.url}}">{{business.name}}</a><br><br><img src="{{business.image_url}}"><br> Yelp rating: &nbsp; <img src="{{business.rating_img_url}}">
-          {% for piece in business.location.display_address%}
-            <p>{{ piece }}</p>
+            {% endif %}
           {% endfor %}
-        <br>
-        <br>
-      {% endif %}
-    {% endfor %}
-    </ul>
+          </ul>
+          powered by <img src="/images/yelp_logo/iOSWeb/yelp-logo-small.png">
+        </div>
+      </div>
+    </center>
+    <!-- <div style="width:100%;"> -->
+      <div id="right"> <center>
+        <div id=rightcolor>
+          <ul class="events">
+            <h2>Events in your area:</h2>
+            {% for business in yelp_events.businesses %}
+              {% if business.id == 'UNAVAILABLE_FOR_LOCATION' %}
+                <h1>Please refine your search and enter a valid location!<a href='/'> Go back</a></h1>
+              {% else %}
+                <a href="{{business.url}}">{{business.name}}</a><br><br><img src="{{business.image_url}}"><br> Yelp rating: &nbsp; <img src="{{business.rating_img_url}}">
+                  {% for piece in business.location.display_address%}
+                    <p>{{ piece }}</p>
+                  {% endfor %}
+                <br>
+                <br>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
 
     <br>
-  </div>
     <br>
     <br>
     <br>
-<div><button class="button" id="nopeButton"><a href="/nope"><span><h2>IDK, I don't feel like doing any of this.</h2></span></button>
+    <button class="button" id="nopeButton"><a href="/nope"><span><h2>IDK, I don't feel like doing any of this.</h2></span></button>
     <br>
     <br>
+<<<<<<< HEAD
+    <ul>
+    {% for event in events%}
+      <li><a href="{{event['url']}}">{{event['name']['html']}}</a></li>
+    {% endfor %}
+    </ul>
+  <a href="/results?location={{location}}&keywords={{keywords}}&page={{1+(page|int)}}">Next page</a>
+</div>
+=======
   <ul>
   {% for event in events['events']%}
     <img src="{{event['logo']['url']}}">
@@ -72,6 +84,7 @@
     <a href="/results?location={{location}}&keywords={{keywords}}&page={{(page|int)-1}}">Previous page</a>
     <a href="/results?location={{location}}&keywords={{keywords}}&page={{1+(page|int)}}">Next page</a>
   {% endif %}
+>>>>>>> ec4a5caebd2b80f737523f26e720bdd846484343
   </body></center>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"> </script>
