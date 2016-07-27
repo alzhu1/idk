@@ -80,22 +80,22 @@ class ResultsHandler(webapp2.RequestHandler):
             'term': keywords,
             'lang': 'en',
             'category_filter': 'restaurants',
-            'radius_filter': 8046,
-            'sort': 1,
+            'radius_filter': 3219,
+            'sort': 2,
             'offset': 0+page*10,
             'limit': 10
         }
         event_params = {
             'term': keywords,
             'lang': 'en',
-            'category_filter': 'active,arts,eventservices', #maybe shopping?
-            'radius_filter': 8046,
-            'sort': 1,
+            'category_filter': 'active,arts', #maybe shopping?
+            'radius_filter': 3219,
+            'sort': 2,
             'offset': 0+page*10,
             'limit': 10
         }
         event_page = int(page/5)
-        EVENTBRITE_URL = 'https://www.eventbriteapi.com/v3/events/search/?token={}&q={}&location.address={}&location.within=5mi&page={}'.format(EVENTBRITE_TOKEN,keywords,location,1+event_page) #figure out how to incorporate page number
+        EVENTBRITE_URL = 'https://www.eventbriteapi.com/v3/events/search/?token={}&q={}&location.address={}&location.within=2mi&page={}'.format(EVENTBRITE_TOKEN,keywords,location,1+event_page) #figure out how to incorporate page number
         logging.info(EVENTBRITE_URL)
         eventbrite_response = urlfetch.fetch(EVENTBRITE_URL)
         events = json.loads(eventbrite_response.content)
