@@ -76,28 +76,31 @@ class ResultsHandler(webapp2.RequestHandler):
             'category_filter': 'restaurants',
             'radius_filter': 8046,
             'sort': 1,
-            'offset': 0+page*20
+            'offset': 0+page*10,
+            'limit': 10
         }
         event_params = {
             'term': keywords,
             'lang': 'en',
-            'category_filter': 'active,arts,eventservices,nightlife', #maybe shopping?
+            'category_filter': 'active,arts,eventservices', #maybe shopping?
             'radius_filter': 8046,
             'sort': 1,
-            'offset': 0+page*20
+            'offset': 0+page*10,
+            'limit': 10
         }
-        EVENTBRITE_URL = 'https://www.eventbriteapi.com/v3/events/search/?token={}&q={}&location.address={}&page={}'.format(EVENTBRITE_TOKEN,keywords,location,1+page) #figure out how to incorporate page number
+        EVENTBRITE_URL = 'https://www.eventbriteapi.com/v3/events/search/?token={}&q={}&location.address={}&location.within=5mi&page={}'.format(EVENTBRITE_TOKEN,keywords,location,1+page) #figure out how to incorporate page number
         logging.info(EVENTBRITE_URL)
         eventbrite_response = urlfetch.fetch(EVENTBRITE_URL)
-        logging.info(eventbrite_response.content)
         events = json.loads(eventbrite_response.content)
 
         foods = client.search(location, **food_params) #dropdown menu or search?
         yelp_events = client.search(location, **event_params)
+        logging.info(events)
+
         template_vals = {
             'foods': foods,
             'yelp_events': yelp_events,
-            'events': events['events'],
+            'events': events,
             'keywords':keywords,
             'location':location,
             'page':page
@@ -130,9 +133,15 @@ class NopeHandler(webapp2.RequestHandler):
 
         self.redirect('/nope')
 
+class SubmitIdeaHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_environment.get_template('submitIdea.html')
+        self.response.write(template.render())
+
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/results', ResultsHandler),
     ('/specifics', SpecificsHandler),
-    ('/nope', NopeHandler)
+    ('/nope', NopeHandler),
+    ('/submitIdea', SubmitIdeaHandler)
 ], debug=True)
