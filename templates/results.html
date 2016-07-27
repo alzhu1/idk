@@ -64,7 +64,14 @@
     <li><a href="{{event['url']}}">{{event['name']['html']}}</a></li>
   {% endfor %}
   </ul>
-  <a href="/results?location={{location}}&keywords={{keywords}}&page={{1+(page|int)}}">Next page</a>
+  {% if page == 0 %}
+    <a href="/results?location={{location}}&keywords={{keywords}}&page={{1+(page|int)}}">Next page</a>
+  {% elif page == events['pagination']['page_number'] %}
+    <a href="/results?location={{location}}&keywords={{keywords}}&page={{(page|int)-1}}">Previous page</a>
+  {% else %}
+    <a href="/results?location={{location}}&keywords={{keywords}}&page={{(page|int)-1}}">Previous page</a>
+    <a href="/results?location={{location}}&keywords={{keywords}}&page={{1+(page|int)}}">Next page</a>
+  {% endif %}
   </body></center>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"> </script>
