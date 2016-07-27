@@ -47,7 +47,7 @@ class MainHandler(webapp2.RequestHandler):
         location = self.request.get('location')
         info = self.request.get('info')
 
-        upload = Upload(eventname=eventname, location=location, date=date, info=info)
+        upload = Upload(eventname=eventname, location=location, info=info)
         upload.put()
 
         self.redirect('/nope')
