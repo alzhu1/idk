@@ -59,7 +59,7 @@
     <br>
     <br>
   <ul>
-  {% for event in events%}
+  {% for event in events['events']%}
     <img src="{{event['logo']['url']}}">
     <li><a href="{{event['url']}}">{{event['name']['html']}}</a></li>
   {% endfor %}
