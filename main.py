@@ -24,6 +24,7 @@ jinja_environment = jinja2.Environment(loader=jinja2.FileSystemLoader(template_d
 
 API_KEY = 'LTaCUjkWSPDy9gnmJRLM7g'
 API_QUERY = 'https://api.yelp.com/v2/search/'
+urlfetch.set_default_fetch_deadline(60)
 
 
 class Search(ndb.Model):
@@ -58,22 +59,30 @@ class ResultsHandler(webapp2.RequestHandler):
     def get(self):
         keywords = self.request.get('keywords')
         location = self.request.get('location')
+        page = self.request.get('page')
+        if page == '':
+            page=0
+        else:
+            page=int(page)
         food_params = {
             'term': keywords,
             'lang': 'en',
             'category_filter': 'restaurants,food',
             'radius_filter': 8046,
-            'sort': 1
+            'sort': 1,
+            'offset': 0+page*20
         }
         event_params = {
             'term': keywords,
             'lang': 'en',
             'category_filter': 'active,arts,eventservices,nightlife', #maybe shopping?
             'radius_filter': 8046,
-            'sort': 1
+            'sort': 1,
+            'offset': 0+page*20
         }
-        EVENTBRITE_URL = 'https://www.eventbriteapi.com/v3/events/search/?token={}&q={}&location.address={}'.format(EVENTBRITE_TOKEN,keywords,location)
+        EVENTBRITE_URL = 'https://www.eventbriteapi.com/v3/events/search/?token={}&q={}&location.address={}&page={}'.format(EVENTBRITE_TOKEN,keywords,location,1+page) #figure out how to incorporate page number
         eventbrite_response = urlfetch.fetch(EVENTBRITE_URL)
+        logging.info(eventbrite_response.content)
         events = json.loads(eventbrite_response.content)
 
         foods = client.search(location, **food_params) #dropdown menu or search?
@@ -81,7 +90,10 @@ class ResultsHandler(webapp2.RequestHandler):
         template_vals = {
             'foods': foods,
             'yelp_events': yelp_events,
-            'events': events['events']
+            'events': events['events'],
+            'keywords':keywords,
+            'location':location,
+            'page':page
         }
         logging.info(type(foods)) #REMOVE LATER
         template = jinja_environment.get_template('results.html')

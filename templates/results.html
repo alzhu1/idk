@@ -57,6 +57,7 @@
     <li><a href="{{event['url']}}">{{event['name']['html']}}</a></li>
   {% endfor %}
   </ul>
+  <a href="/results?location={{location}}&keywords={{keywords}}&page={{1+(page|int)}}">Next page</a>
   </body></center>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"> </script>
