@@ -9,10 +9,9 @@
   <h1>IDK then, maybe you should try these other ideas:</h1><br>
 
     {% for event in events %}
-    {{events.eventname}}<br>
-    {{events.location}}<br>
-    {{events.date}}<br>
-    {{events.info}}<br><br><br>
+    <h3>{{event.eventname}}</h3><br>
+    <h3>{{event.location}}</h3><br>
+    <h3>{{event.info}}</h3><br><br><br>
     {% endfor %}
 
 </body>

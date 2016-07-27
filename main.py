@@ -45,13 +45,12 @@ class MainHandler(webapp2.RequestHandler):
     def post(self):
         eventname = self.request.get('eventname')
         location = self.request.get('location')
-        date = self.request.get('date')
         info = self.request.get('info')
 
-        upload = Upload(eventname=eventname, location=location, date=date, info=info)
+        upload = Upload(eventname=eventname, location=location, info=info)
         upload.put()
 
-        self.redirect('/nope')
+        self.redirect('/')
 
 class ResultsHandler(webapp2.RequestHandler):
     def get(self):
@@ -71,7 +70,7 @@ class ResultsHandler(webapp2.RequestHandler):
             'radius_filter': 8046,
             'sort': 1
         }
-        foods = client.search(location, **food_params)
+        foods = client.search(location, **food_params) #dropdown menu or search?
         events = client.search(location, **event_params)
         template_vals = {
             'foods': foods,
@@ -88,9 +87,9 @@ class SpecificsHandler(webapp2.RequestHandler):
 
 class NopeHandler(webapp2.RequestHandler):
     def get(self):
-        eventinfo = Upload.query().fetch()
+        events = Upload.query().fetch()
 
-        events = {'eventinfo': eventinfo}
+        events = {'events': events}
 
         template = jinja_environment.get_template('nope.html')
         self.response.write(template.render(events))
@@ -98,10 +97,9 @@ class NopeHandler(webapp2.RequestHandler):
     def post(self):
         eventname = self.request.get('eventname')
         location = self.request.get('location')
-        date = self.request.get('date')
         info = self.request.get('info')
 
-        upload = Upload(eventname=eventname, location=location, date=date, info=info)
+        upload = Upload(eventname=eventname, location=location, info=info)
         upload.put()
 
         self.redirect('/nope')
