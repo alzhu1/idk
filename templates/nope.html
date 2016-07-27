@@ -2,25 +2,12 @@
 <html>
 <head>
   <title>Nope</title>
-  <link rel="stylesheet" href="stylesheets/idk.css">
+  <link rel="stylesheet" href="stylesheets/nope.css">
 </head>
-<style>
-h2 {
-  text-decoration: underline;
-}
-h4 {
-  font-size: 14px;
-}
-ul {
-background-color: white;
-border-color: darkblue;
-border-radius: 5px;
-}
-</style>
 <body>
 
-  <div><h1>IDK then, maybe you should try these other ideas:</h1><br>
-    {% for event in events %}
+  <h1>IDK then, maybe you should try these other ideas:</h1><br>
+    <div>{% for event in events %}
     <ul>
     <h2>Idea: {{event.eventname}}</2><br>
     <h4>Where It's At: {{event.location}}</h4><br>
