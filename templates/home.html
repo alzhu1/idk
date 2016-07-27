@@ -3,6 +3,15 @@
   <head>
     <title>IDK Home</title>
     <link rel="stylesheet" href="stylesheets/idk.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+    $(document).ready(setup);
+    function setup() {
+        $('#addIdea').click(addIdea() {
+      alert('Thanks for sharing!');
+    });
+    </script>
   </head>
 
   <body>
@@ -22,12 +31,12 @@
         </form></center>
     </div>
       <div id="right" style="float:right; width:50%;">
-        <center><h2 id=header2>Any ideas?</h2>
+        <center><h2 id=header2>Want to share any ideas with other bored people nearby?</h2>
         <form method="post" action="/" id=form2>
             <input type='text' name='eventname' placeholder='Enter Event Name'><br><br>
             <input type='text' name='location' placeholder='Enter Event Location'><br><br>
             <textarea name="info" rows=5 cols=40 placeholder="Enter More Information Here"></textarea><br>
-          <button class="button"><span>Post</span></button>
+          <button id = "addIdea" class="button"><span>Post</span></button>
         </form> </div></center>
       </div>
     <br>
