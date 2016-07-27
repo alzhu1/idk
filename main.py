@@ -81,7 +81,7 @@ class ResultsHandler(webapp2.RequestHandler):
             'lang': 'en',
             'category_filter': 'restaurants',
             'radius_filter': 3219,
-            'sort': 1,
+            'sort': 2,
             'offset': 0+page*10,
             'limit': 10
         }
@@ -90,7 +90,7 @@ class ResultsHandler(webapp2.RequestHandler):
             'lang': 'en',
             'category_filter': 'active,arts,eventservices', #maybe shopping?
             'radius_filter': 3219,
-            'sort': 1,
+            'sort': 2,
             'offset': 0+page*10,
             'limit': 10
         }
