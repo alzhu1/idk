@@ -23,6 +23,7 @@
           {% endif %}
         {% endfor %}
         </ul>
+        powered by <img src="/images/yelp_logo/iOSWeb/yelp-logo-small.png">
       </div>
     </div></center>
     <div id="container" style="width:100%;">
@@ -51,7 +52,6 @@
 <div><button class="button" id="nopeButton"><a href="/nope"><span><h2>IDK, I don't feel like doing any of this.</h2></span></button>
     <br>
     <br>
-    powered by <img src="images/yelp_logo/iOS%20&%20Web/yelp-logo-small.png">
   <ul>
   {% for event in events%}
     <li><a href="{{event['url']}}">{{event['name']['html']}}</a></li>

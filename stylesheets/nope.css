@@ -1,0 +1,36 @@
+h1 {
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  text-decoration: underline;
+  text-align: center;
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+  background: darkblue;
+  margin-top: 0;
+}
+
+h2 {
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+  text-decoration: underline;
+}
+
+h4 {
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+  font-size: 14px;
+}
+
+ul {
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+  border-color: darkblue;
+  border-radius: 5px;
+}
+
+div {
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+  background-color: white;
+  width: 400px;
+}
+
+body {
+  background-size: 100vw 100vh;
+}
