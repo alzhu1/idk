@@ -4,18 +4,33 @@
   <title>Nope</title>
   <link rel="stylesheet" href="stylesheets/idk.css">
 </head>
+<style>
+h2 {
+  text-decoration: underline;
+}
+h4 {
+  font-size: 14px;
+}
+ul {
+background-color: white;
+border-color: darkblue;
+border-radius: 5px;
+}
+</style>
 <body>
 
-  <h1>IDK then, maybe you should try these other ideas:</h1><br>
-
+  <div><h1>IDK then, maybe you should try these other ideas:</h1><br>
     {% for event in events %}
-    <h2>{{event.eventname}}</2><br>
     <ul>
-    <h3>{{event.location}}</h3><br>
-    <h3>{{event.info}}</h3><br><br><br>
+    <h2>{{event.eventname}}</2><br>
+    <h4>{{event.location}}</h4><br>
+    <h4>{{event.info}}</h4><br><br><br>
     </ul>
     {% endfor %}
-
+    <br>
+    <br>
+    <br>
+  </div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"> </script>
 <script src="scripts/background.js"></script>
