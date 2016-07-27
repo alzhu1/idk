@@ -100,7 +100,7 @@ h2 span {
 }
 
 .button span:after {
-  content: '»';
+  content: '\00bb';
   position: relative;
   opacity: 0;
   top: 0;
