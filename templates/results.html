@@ -18,17 +18,14 @@
           <center><h2 id=hungry>Hungry? &#127860;</h2></center>
           <ul class="food">
           {% for business in foods.businesses %}
-            {% if business.id == 'UNAVAILABLE_FOR_LOCATION' %}
-              <h1>Please refine your search and enter a valid location!<a href='/'> Go back</a></h1>
-            {% else %}
               <a href="{{business.url}}">{{business.name}}</a><br><br><img src="{{business.image_url}}"><br>Yelp rating: &nbsp; <img src="{{business.rating_img_url}}">
                 <br>
                 {% for piece in business.location.display_address%}
                   <p>{{ piece }}</p>
                 {% endfor %}
                 <br>
+                  <p>&#128161; &nbsp; &#128161; &nbsp; &#128161; &nbsp;</p>
               <br>
-            {% endif %}
           {% endfor %}
           </ul>
           powered by <img src="/images/yelp_logo/iOSWeb/yelp-logo-small.png">
@@ -39,18 +36,16 @@
       <div id="right"> <center>
         <div id=rightcolor>
           <ul class="events">
-            <h2>Events in your area:</h2>
+            <h2>Stuff to Do:</h2>
             {% for business in yelp_events.businesses %}
-              {% if business.id == 'UNAVAILABLE_FOR_LOCATION' %}
-                <h1>Please refine your search and enter a valid location!<a href='/'> Go back</a></h1>
-              {% else %}
                 <a href="{{business.url}}">{{business.name}}</a><br><br><img src="{{business.image_url}}"><br> Yelp rating: &nbsp; <img src="{{business.rating_img_url}}">
                   {% for piece in business.location.display_address%}
                     <p>{{ piece }}</p>
                   {% endfor %}
+                  <br>
+                  <p>&#128161; &nbsp; &#128161; &nbsp; &#128161; &nbsp;</p>
                 <br>
-                <br>
-              {% endif %}
+              <br>
             {% endfor %}
           </ul>
         </div>
@@ -62,12 +57,16 @@
     <br>
     <br>
   <ul>
-  {% for event in events['events']%}
-    <img src="{{event['logo']['url']}}">
-    <a id=eventlink href="{{event['url']}}">{{event['name']['html']}}</a>
-    <br>
-    <br>
-    <br>
+
+  {% for i in range(page*10, page*10+10) %} <!--i in range(page*10, page*10+10) -->
+    {% if i < (events['events']|length)%}
+      <img src="{{events['events'][i]['logo']['url']}}"> <!-- events[i]['logo']['url'] -->
+      <a href="{{events['events'][i]['url']}}">{{events['events'][i]['name']['html']}}</a> <!-- events[i]['url'], events[i]['name']['html'] -->
+      <br>
+      <br>
+      <br>
+    {% endif %}
+
   {% endfor %}
   </ul>
   {% if page == 0 %}

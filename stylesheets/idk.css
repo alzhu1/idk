@@ -165,12 +165,19 @@ p {
   padding-left: 0px
 }
 
-#nope {
-  width: 20em;  height: 3em;
-}
-
-#submitIdea {
-  width: 20em;  height: 3em;
+#otherButtons {
+  width: 19em;  height: 4em;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: darkblue;
+  border: 2px black solid;
+  text-align: center;
+  font-size: 14px;
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+  color: white;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
 }
 
 #search {
@@ -191,7 +198,6 @@ a:visited {
 a:hover {
   text-decoration: underline;
   color: cyan;
-
 }
 
 #eventlink {
