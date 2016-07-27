@@ -60,14 +60,20 @@ class ResultsHandler(webapp2.RequestHandler):
         keywords = self.request.get('keywords')
         location = self.request.get('location')
         page = self.request.get('page')
+        locount = 0
         if page == '':
             page=0
         else:
             page=int(page)
+        for ch in range(len(location)):
+            if location[ch] == ' ':
+                locount = locount + 1
+        location = location.replace(' ', '+', locount)
+
         food_params = {
             'term': keywords,
             'lang': 'en',
-            'category_filter': 'restaurants,food',
+            'category_filter': 'restaurants',
             'radius_filter': 8046,
             'sort': 1,
             'offset': 0+page*20
@@ -81,6 +87,7 @@ class ResultsHandler(webapp2.RequestHandler):
             'offset': 0+page*20
         }
         EVENTBRITE_URL = 'https://www.eventbriteapi.com/v3/events/search/?token={}&q={}&location.address={}&page={}'.format(EVENTBRITE_TOKEN,keywords,location,1+page) #figure out how to incorporate page number
+        logging.info(EVENTBRITE_URL)
         eventbrite_response = urlfetch.fetch(EVENTBRITE_URL)
         logging.info(eventbrite_response.content)
         events = json.loads(eventbrite_response.content)
