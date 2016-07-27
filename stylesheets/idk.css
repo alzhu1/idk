@@ -3,6 +3,7 @@ body {
 }
 
 #headerblock {
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
   background: darkblue;
   margin-top: 0;
 }
@@ -22,6 +23,7 @@ h3 {
   font-size: 15px;
   color: white;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  background: darkblue;
 }
 
 #header1 {

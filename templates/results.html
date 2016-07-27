@@ -1,42 +1,44 @@
 <!DOCTYPE html>
 <html>
   <head>
-
     <title>Results</title>
   </head>
   <body>
-    <ul class="food">
-    {% for business in foods.businesses %}
-      {% if business.id == 'UNAVAILABLE_FOR_LOCATION' %}
-        <h1>Please refine your search and enter a valid location!<a href='/'> Go back</a></h1>
-      {% else %}
-        <li><img src="{{business.image_url}}"><a href="{{business.url}}">{{business.name}}</a> with a rating of <img src="{{business.rating_img_url}}"></li>
-        <li>
-          {% for piece in business.location.display_address%}
-            {{ piece }}
-          {% endfor %}
-        </li><br>
-      {% endif %}
-    {% endfor %}
-    </ul>
-    <br>
-    <br>
-    <br>
+      <ul class="food">
+      {% for business in foods.businesses %}
+        {% if business.id == 'UNAVAILABLE_FOR_LOCATION' %}
+          <h1>Please refine your search and enter a valid location!<a href='/'> Go back</a></h1>
+        {% else %}
+          <img src="{{business.image_url}}"><a href="{{business.url}}">{{business.name}}</a> with a rating of <img src="{{business.rating_img_url}}">
+          <br>
+            {% for piece in business.location.display_address%}
+              {{ piece }}
+            {% endfor %}
+          <br>
+          <br>
+        {% endif %}
+      {% endfor %}
+      </ul>
+      <br>
+      <br>
 
-    <ul class="events">
-    {% for business in events.businesses %}
-      {% if business.id == 'UNAVAILABLE_FOR_LOCATION' %}
-        <h1>Please refine your search and enter a valid location!<a href='/'> Go back</a></h1>
-      {% else %}
-        <li><img src="{{business.image_url}}"><a href="{{business.url}}">{{business.name}}</a> with a rating of <img src="{{business.rating_img_url}}"></li>
-        <li>
-          {% for piece in business.location.display_address%}
-            {{ piece }}
-          {% endfor %}
-        </li><br>
-      {% endif %}
-    {% endfor %}
-    </ul>
+
+      <ul class="events">
+      {% for business in events.businesses %}
+        {% if business.id == 'UNAVAILABLE_FOR_LOCATION' %}
+          <h1>Please refine your search and enter a valid location!<a href='/'> Go back</a></h1>
+        {% else %}
+          <img src="{{business.image_url}}"><a href="{{business.url}}">{{business.name}}</a> with a rating of <img src="{{business.rating_img_url}}">
+          <br>
+            {% for piece in business.location.display_address%}
+              {{ piece }}
+            {% endfor %}
+          <br>
+          <br>
+        {% endif %}
+      {% endfor %}
+      </ul>
+
     <br>
     <br>
     <br>
