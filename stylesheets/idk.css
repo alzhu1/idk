@@ -19,7 +19,7 @@ h1 {
 }
 h2 {
   font-family: Tahoma, Verdana, Segoe, sans-serif;
-  text-decoration: underline;
+  /*text-decoration: underline;*/
 }
 
 h3 {
@@ -124,4 +124,9 @@ li {
 p {
   font-style: italic;
   font-family: Tahoma, Verdana, Segoe, sans-serif;
+}
+
+
+#hungry {
+  width: 450px;
 }
