@@ -61,15 +61,6 @@
     <button class="button" id="nopeButton"><a href="/nope"><span><h2>IDK, I don't feel like doing any of this.</h2></span></button>
     <br>
     <br>
-<<<<<<< HEAD
-    <ul>
-    {% for event in events%}
-      <li><a href="{{event['url']}}">{{event['name']['html']}}</a></li>
-    {% endfor %}
-    </ul>
-  <a href="/results?location={{location}}&keywords={{keywords}}&page={{1+(page|int)}}">Next page</a>
-</div>
-=======
   <ul>
   {% for event in events['events']%}
     <img src="{{event['logo']['url']}}">
@@ -84,7 +75,6 @@
     <a href="/results?location={{location}}&keywords={{keywords}}&page={{(page|int)-1}}">Previous page</a>
     <a href="/results?location={{location}}&keywords={{keywords}}&page={{1+(page|int)}}">Next page</a>
   {% endif %}
->>>>>>> ec4a5caebd2b80f737523f26e720bdd846484343
   </body></center>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"> </script>
