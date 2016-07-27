@@ -16,33 +16,22 @@
   </head>
 
   <body>
-    <div id=headerblock>
+    <center><div id=headerblock>
       <a href='/'><h1 id=headerblock>&#128161; IDK &#128161;</h1></a>
     </div>
-    <center><h3>what do you wanna do?</h3></center>
+    <h3>what do you wanna do?</h3>
     <br>
-    <br>
-    <div id="container" style="width:100%;">
-      <div id="left" style="float:left; width:50%;"> <center>
-        <h2 id=header1>What to do in your area:</h2></center>
-        <center><form type="post" action="/results" id=form1>
+        <form type="post" action="/results" id=form1>
+          <div><h2 id=header1>What to do in your area:</h2>
           <input id=move type="text" name="location" placeholder="Enter Your Location" required><br><br>
-          <input type="text" name="keywords" placeholder="Type in Keywords" required><br><br>
+          <input type="text" name="keywords" placeholder="Type in Keywords" required><br><br><br>
           <button class="button"><span>Search</span></button>
-        </form></center>
-    </div>
-
-      <div id="right" style="float:right; width:50%;">
-        <center><h2 id=header2>Any ideas you want to share?</h2>
-        <form method="post" action="/" id=form2>
-            <input type='text' name='eventname' placeholder='Enter Event Name'><br><br>
-            <input type='text' name='location' placeholder='Enter Event Location'><br><br>
-            <textarea name="info" rows=5 cols=40 placeholder="Enter More Information Here"></textarea><br>
-          <button id = "addIdea" class="button"><span>Post</span></button>
-        </form> </div></center>
-      </div>
-    <br>
-    <br>
+          <br><br>
+          <button id = "nope" class="button"><span><a href="/nope">Give me an idea I can do anyhwere</span></a></button>
+          <br><br>
+          <button id = "submitIdea" class="button"><span><a href="/submitIdea">Give someone an idea</span></a></button>
+        </form></div></center>
+          <br><br>
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"> </script>
   <script src="scripts/background.js"></script>

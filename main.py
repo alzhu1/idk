@@ -133,9 +133,15 @@ class NopeHandler(webapp2.RequestHandler):
 
         self.redirect('/nope')
 
+class SubmitIdeaHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_environment.get_template('submitIdea.html')
+        self.response.write(template.render())
+
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/results', ResultsHandler),
     ('/specifics', SpecificsHandler),
-    ('/nope', NopeHandler)
+    ('/nope', NopeHandler),
+    ('/submitIdea', SubmitIdeaHandler)
 ], debug=True)
