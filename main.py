@@ -71,7 +71,7 @@ class ResultsHandler(webapp2.RequestHandler):
             'radius_filter': 8046,
             'sort': 1
         }
-        foods = client.search(location, **food_params)
+        foods = client.search(location, **food_params) #dropdown menu or search?
         events = client.search(location, **event_params)
         template_vals = {
             'foods': foods,
