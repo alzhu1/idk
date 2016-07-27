@@ -89,8 +89,8 @@ class ResultsHandler(webapp2.RequestHandler):
         EVENTBRITE_URL = 'https://www.eventbriteapi.com/v3/events/search/?token={}&q={}&location.address={}&page={}'.format(EVENTBRITE_TOKEN,keywords,location,1+page) #figure out how to incorporate page number
         logging.info(EVENTBRITE_URL)
         eventbrite_response = urlfetch.fetch(EVENTBRITE_URL)
-        logging.info(eventbrite_response.content)
         events = json.loads(eventbrite_response.content)
+        logging.info(events)
 
         foods = client.search(location, **food_params) #dropdown menu or search?
         yelp_events = client.search(location, **event_params)
