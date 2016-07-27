@@ -86,7 +86,7 @@ class ResultsHandler(webapp2.RequestHandler):
             'sort': 1,
             'offset': 0+page*20
         }
-        EVENTBRITE_URL = 'https://www.eventbriteapi.com/v3/events/search/?token={}&q={}&location.address={}&page={}'.format(EVENTBRITE_TOKEN,keywords,location,1+page) #figure out how to incorporate page number
+        EVENTBRITE_URL = 'https://www.eventbriteapi.com/v3/events/search/?token={}&q={}&location.address={}&location.within=5mi&page={}'.format(EVENTBRITE_TOKEN,keywords,location,1+page) #figure out how to incorporate page number
         logging.info(EVENTBRITE_URL)
         eventbrite_response = urlfetch.fetch(EVENTBRITE_URL)
         events = json.loads(eventbrite_response.content)
