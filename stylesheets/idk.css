@@ -63,6 +63,10 @@ h2 span {
   margin-top: 15px
 }
 
+.mytext {
+    width: 300px;
+}
+
 #form2 {
   width: 300px;
   height: 300px;
