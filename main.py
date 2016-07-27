@@ -45,7 +45,6 @@ class MainHandler(webapp2.RequestHandler):
     def post(self):
         eventname = self.request.get('eventname')
         location = self.request.get('location')
-        date = self.request.get('date')
         info = self.request.get('info')
 
         upload = Upload(eventname=eventname, location=location, date=date, info=info)
