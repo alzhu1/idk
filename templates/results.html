@@ -29,7 +29,7 @@
       <div id="right" style="float:right; width:50%;"> <center>
     <ul class="events">
       <h2>IDK, Does any of this look cool?</h2>
-    {% for business in events.businesses %}
+    {% for business in yelp_events.businesses %}
       {% if business.id == 'UNAVAILABLE_FOR_LOCATION' %}
         <h1>Please refine your search and enter a valid location!<a href='/'> Go back</a></h1>
       {% else %}
@@ -50,6 +50,11 @@
     <br>
 
     powered by <img src="images/yelp_logo/iOS%20&%20Web/yelp-logo-small.png">
+  <ul>
+  {% for event in events%}
+    <li><a href="{{event['url']}}">{{event['name']['html']}}</a></li>
+  {% endfor %}
+  </ul>
   </body></center>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"> </script>
