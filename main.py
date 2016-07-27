@@ -61,14 +61,20 @@ class ResultsHandler(webapp2.RequestHandler):
         location = self.request.get('location')
         page = self.request.get('page')
         locount = 0
+        keycount = 0
         if page == '':
             page=0
         else:
             page=int(page)
+
         for ch in range(len(location)):
             if location[ch] == ' ':
                 locount = locount + 1
+        for ch in range(len(keywords)):
+            if keywords[ch] == ' ':
+                keycount = keycount + 1
         location = location.replace(' ', '+', locount)
+        keywords = keywords.replace(' ', '+', keycount)
 
         food_params = {
             'term': keywords,
@@ -88,7 +94,8 @@ class ResultsHandler(webapp2.RequestHandler):
             'offset': 0+page*10,
             'limit': 10
         }
-        EVENTBRITE_URL = 'https://www.eventbriteapi.com/v3/events/search/?token={}&q={}&location.address={}&location.within=5mi&page={}'.format(EVENTBRITE_TOKEN,keywords,location,1+page) #figure out how to incorporate page number
+        event_page = int(page/5)
+        EVENTBRITE_URL = 'https://www.eventbriteapi.com/v3/events/search/?token={}&q={}&location.address={}&location.within=5mi&page={}'.format(EVENTBRITE_TOKEN,keywords,location,1+event_page) #figure out how to incorporate page number
         logging.info(EVENTBRITE_URL)
         eventbrite_response = urlfetch.fetch(EVENTBRITE_URL)
         events = json.loads(eventbrite_response.content)
@@ -100,7 +107,7 @@ class ResultsHandler(webapp2.RequestHandler):
         template_vals = {
             'foods': foods,
             'yelp_events': yelp_events,
-            'events': events,
+            'events': events['events'],
             'keywords':keywords,
             'location':location,
             'page':page
