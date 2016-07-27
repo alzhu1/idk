@@ -72,7 +72,7 @@ class ResultsHandler(webapp2.RequestHandler):
             'radius_filter': 8046,
             'sort': 1
         }
-        EVENTBRITE_URL = 'https://www.eventbriteapi.com/v3/events/search/?token={}&q={}&location.address={}'.format(EVENTBRITE_TOKEN,keywords,location)
+        EVENTBRITE_URL = 'https://www.eventbriteapi.com/v3/events/search/?token={}&q={}&location.address={}&page=1'.format(EVENTBRITE_TOKEN,keywords,location) #figure out how to incorporate page number
         eventbrite_response = urlfetch.fetch(EVENTBRITE_URL)
         events = json.loads(eventbrite_response.content)
 
