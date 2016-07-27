@@ -107,7 +107,7 @@ class ResultsHandler(webapp2.RequestHandler):
         template_vals = {
             'foods': foods,
             'yelp_events': yelp_events,
-            'events': events['events'],
+            'events': events,
             'keywords':keywords,
             'location':location,
             'page':page
