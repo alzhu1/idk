@@ -70,12 +70,12 @@
   {% endfor %}
   </ul>
   {% if page == 0 %}
-    <a href="/results?location={{location}}&keywords={{keywords}}&page={{1+(page|int)}}">Next page</a>
+    <a id="link" href="/results?location={{location}}&keywords={{keywords}}&page={{1+(page|int)}}">Next page</a>
   {% elif page == events['pagination']['page_number'] %}
-    <a href="/results?location={{location}}&keywords={{keywords}}&page={{(page|int)-1}}">Previous page</a>
+    <a id="link" href="/results?location={{location}}&keywords={{keywords}}&page={{(page|int)-1}}">Previous page</a>
   {% else %}
-    <a href="/results?location={{location}}&keywords={{keywords}}&page={{(page|int)-1}}">Previous page</a>
-    <a href="/results?location={{location}}&keywords={{keywords}}&page={{1+(page|int)}}">Next page</a>
+    <a id="link" href="/results?location={{location}}&keywords={{keywords}}&page={{(page|int)-1}}">Previous page</a>
+    <a id="link" href="/results?location={{location}}&keywords={{keywords}}&page={{1+(page|int)}}">Next page</a>
   {% endif %}
   </body></center>
 
