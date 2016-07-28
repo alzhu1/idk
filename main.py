@@ -7,7 +7,6 @@ from yelp.oauth1_authenticator import Oauth1Authenticator
 from google.appengine.api import urlfetch
 import logging
 import json
-import time
 
 auth = Oauth1Authenticator(
     consumer_key='LTaCUjkWSPDy9gnmJRLM7g',
@@ -21,11 +20,7 @@ EVENTBRITE_TOKEN = '6V7MG6DMIX6P4FWU5GJW'
 
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_environment = jinja2.Environment(loader=jinja2.FileSystemLoader(template_dir))
-
-
-API_KEY = 'LTaCUjkWSPDy9gnmJRLM7g'
-API_QUERY = 'https://api.yelp.com/v2/search/'
-urlfetch.set_default_fetch_deadline(60)
+#urlfetch.set_default_fetch_deadline(60)
 
 
 class Search(ndb.Model):
@@ -63,6 +58,7 @@ class ResultsHandler(webapp2.RequestHandler):
         page = self.request.get('page')
         locount = 0
         keycount = 0
+
         if page == '':
             page=0
         else:
@@ -95,12 +91,10 @@ class ResultsHandler(webapp2.RequestHandler):
             'offset': 0+page*10,
             'limit': 10
         }
-        event_page = int(page/5)
-        EVENTBRITE_URL = 'https://www.eventbriteapi.com/v3/events/search/?token={}&q={}&location.address={}&location.within=2mi&page={}'.format(EVENTBRITE_TOKEN,keywords,location,1+event_page) #figure out how to incorporate page number
+        EVENTBRITE_URL = 'https://www.eventbriteapi.com/v3/events/search/?token={}&location.address={}&location.within=2mi&page={}'.format(EVENTBRITE_TOKEN,location,1+int(page/5)) #figure out how to incorporate page number
         eventbrite_response = urlfetch.fetch(EVENTBRITE_URL)
         events = json.loads(eventbrite_response.content)
 
-        logging.info(events)
         foods = client.search(location, **food_params) #dropdown menu or search?
         yelp_events = client.search(location, **event_params)
 
