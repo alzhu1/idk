@@ -211,3 +211,11 @@ a:hover {
   height: 100px;
   text-decoration: none;
 }
+
+#link {
+  margin: 0;
+  font-style: italic;
+  font-size: 15px;
+  color: white;
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+}
