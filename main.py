@@ -20,10 +20,6 @@ EVENTBRITE_TOKEN = '6V7MG6DMIX6P4FWU5GJW'
 
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_environment = jinja2.Environment(loader=jinja2.FileSystemLoader(template_dir))
-
-
-API_KEY = 'LTaCUjkWSPDy9gnmJRLM7g'
-API_QUERY = 'https://api.yelp.com/v2/search/'
 urlfetch.set_default_fetch_deadline(60)
 
 
