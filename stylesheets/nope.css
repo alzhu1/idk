@@ -1,3 +1,10 @@
+#headerblock {
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+  background: darkblue;
+  margin-top: 0;
+}
+
+
 h1 {
   color: white;
   font-size: 40px;
@@ -33,4 +40,5 @@ div {
 
 body {
   background-size: 100vw 100vh;
+  margin: 0;
 }
