@@ -5,7 +5,7 @@
     <title>Results</title>
       <link rel="stylesheet" href="stylesheets/idk.css">
   </head>
-  <center><body>
+  <body>
     <div id=headerblock>
       <a href='/'><h1 id=headerblock>&#128161; IDK &#128161;</h1></a>
     </div>
@@ -33,7 +33,7 @@
       </div>
     </center>
     <!-- <div style="width:100%;"> -->
-      <div id="right"> <center>
+      <center><div id="right">
         <div id=rightcolor>
           <ul class="events">
             <h2>Stuff to Do:</h2>
@@ -48,15 +48,18 @@
               <br>
             {% endfor %}
           </ul>
-        </div>
+        </div></div></center>
+
     <br>
     <br>
     <br>
     <br>
-    <button class="button" id="nopeButton"><a href="/nope"><h2>I don't feel like doing any of this</h2><span></span></button>
+    <center>
+      <button class="button" id="nopeButton"><a href="/nope"><h2>I don't feel like doing any of this</h2><span></span></button>
+    </center>
     <br>
     <br>
-  <ul>
+  <ul style="padding: 0">
 
   {% for i in range(page*10, page*10+10) %} <!--i in range(page*10, page*10+10) -->
     {% if i < (events['events']|length)%}
@@ -70,14 +73,16 @@
   {% endfor %}
   </ul>
   {% if page == 0 %}
+  <center>
     <a id="link" href="/results?location={{location}}&keywords={{keywords}}&page={{1+(page|int)}}">Next page</a>
+  </center>
   {% elif page == events['pagination']['page_number'] %}
     <a id="link" href="/results?location={{location}}&keywords={{keywords}}&page={{(page|int)-1}}">Previous page</a>
   {% else %}
     <a id="link" href="/results?location={{location}}&keywords={{keywords}}&page={{(page|int)-1}}">Previous page</a>
     <a id="link" href="/results?location={{location}}&keywords={{keywords}}&page={{1+(page|int)}}">Next page</a>
   {% endif %}
-  </body></center>
+  </body>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"> </script>
   <script src="scripts/background.js"></script>
