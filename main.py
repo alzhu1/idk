@@ -7,7 +7,8 @@ from yelp.oauth1_authenticator import Oauth1Authenticator
 from google.appengine.api import urlfetch
 import logging
 import json
-import time
+from datetime import datetime
+from datetime import timedelta
 
 auth = Oauth1Authenticator(
     consumer_key='LTaCUjkWSPDy9gnmJRLM7g',
@@ -21,11 +22,7 @@ EVENTBRITE_TOKEN = '6V7MG6DMIX6P4FWU5GJW'
 
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_environment = jinja2.Environment(loader=jinja2.FileSystemLoader(template_dir))
-
-
-API_KEY = 'LTaCUjkWSPDy9gnmJRLM7g'
-API_QUERY = 'https://api.yelp.com/v2/search/'
-urlfetch.set_default_fetch_deadline(60)
+#urlfetch.set_default_fetch_deadline(60)
 
 
 class Search(ndb.Model):
@@ -40,6 +37,7 @@ class Upload(ndb.Model):
     eventname = ndb.StringProperty()
     location = ndb.StringProperty()
     info = ndb.StringProperty()
+    date = ndb.DateTimeProperty(auto_now_add=True)
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
@@ -63,6 +61,7 @@ class ResultsHandler(webapp2.RequestHandler):
         page = self.request.get('page')
         locount = 0
         keycount = 0
+
         if page == '':
             page=0
         else:
@@ -95,8 +94,7 @@ class ResultsHandler(webapp2.RequestHandler):
             'offset': 0+page*10,
             'limit': 10
         }
-        event_page = int(page/5)
-        EVENTBRITE_URL = 'https://www.eventbriteapi.com/v3/events/search/?token={}&q={}&location.address={}&location.within=2mi&page={}'.format(EVENTBRITE_TOKEN,keywords,location,1+event_page) #figure out how to incorporate page number
+        EVENTBRITE_URL = 'https://www.eventbriteapi.com/v3/events/search/?token={}&location.address={}&location.within=2mi&page={}'.format(EVENTBRITE_TOKEN,location,1+int(page/5)) #figure out how to incorporate page number
         eventbrite_response = urlfetch.fetch(EVENTBRITE_URL)
         events = json.loads(eventbrite_response.content)
 
@@ -111,7 +109,6 @@ class ResultsHandler(webapp2.RequestHandler):
             'location':location,
             'page':page
         }
-        logging.info(type(foods)) #REMOVE LATER
         template = jinja_environment.get_template('results.html')
         self.response.write(template.render(template_vals))
 
@@ -122,19 +119,22 @@ class SpecificsHandler(webapp2.RequestHandler):
 
 class NopeHandler(webapp2.RequestHandler):
     def get(self):
-        events = Upload.query().fetch()
+        events = Upload.query().order(-Upload.date).fetch()
+        template_values = {'events': events}
+        for event in events:
+            if (datetime.now() - event.date).days >= 7:
+                event.key.delete()
 
-        events = {'events': events}
 
         template = jinja_environment.get_template('nope.html')
-        self.response.write(template.render(events))
+        self.response.write(template.render(template_values))
 
     def post(self):
         eventname = self.request.get('eventname')
         location = self.request.get('location')
         info = self.request.get('info')
 
-        upload = Upload(eventname=eventname, location=location, info=info)
+        upload = Upload(eventname=eventname, location=location, info=info, date=datetime.now())
         upload.put()
 
         self.redirect('/nope')
