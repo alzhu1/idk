@@ -4,14 +4,19 @@ h1 {
   font-weight: bold;
   text-decoration: underline;
   text-align: center;
+  margin: 0;
   font-family: Tahoma, Verdana, Segoe, sans-serif;
-  background: darkblue;
-  margin-top: 0;
 }
 
 h2 {
   font-family: Tahoma, Verdana, Segoe, sans-serif;
   text-decoration: underline;
+}
+
+h3 {
+  font-size: 30px;
+  color: white;
+  text-align: center;
 }
 
 h4 {
@@ -25,7 +30,7 @@ ul {
   border-radius: 5px;
 }
 
-div {
+#suggestions {
   font-family: Tahoma, Verdana, Segoe, sans-serif;
   background-color: white;
   width: 500px;
@@ -35,4 +40,11 @@ body {
   background-size: 100vw 100vh;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  margin: 0;
+}
+
+#headerblock {
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+  background: darkblue;
+  margin-top: 0;
 }

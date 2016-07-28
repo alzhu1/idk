@@ -5,9 +5,11 @@
   <link rel="stylesheet" href="stylesheets/nope.css">
 </head>
 <body>
-
-  <h1>IDK then, maybe you should try these ideas other people had:</h1><br>
-    <div>{% for event in events %}
+  <div id=headerblock>
+    <a href='/'><h1 id=headerblock>&#128161; IDK &#128161;</h1></a>
+    <h3>IDK then, maybe you should try these ideas other people had:</h3><br>
+  </div>
+    <div id="suggestions">{% for event in events %}
     <ul>
     <h2>Idea: {{event.eventname}}</2><br>
     <h4>Where It's At: {{event.location}}</h4><br>
