@@ -6,16 +6,18 @@
       <link rel="stylesheet" href="stylesheets/idk.css">
   </head>
   <body>
-    <div id=headerblock>
-      <a href='/'><h1 id=headerblock>&#128161; IDK &#128161;</h1></a>
+    <div id="headerblock">
+      <a href='/'><h1 id="headerblock">&#128161; IDK &#128161;</h1></a>
     </div>
     <center><h3>what do you wanna do?</h3></center>
     <br>
     <br>
     <center>
+    <div id ="contain">
       <div id="left">
-        <div id=leftcolor>
-          <center><h2 id=hungry>Hungry? &#127860;</h2></center>
+        <div id="leftcolor">
+          <!-- <center> -->
+            <h2 id="hungry">Hungry? &#127860;</h2>
           <ul class="food">
           {% for business in foods.businesses %}
               <a id = "nonwhitetext" href="{{business.url}}">{{business.name}}</a><br><br><img src="{{business.image_url}}"><br><p id = "nonwhitetext"> Yelp rating: </p> &nbsp; <img src="{{business.rating_img_url}}">
@@ -29,12 +31,13 @@
           {% endfor %}
           </ul>
           powered by <img src="/images/yelp_logo/iOSWeb/yelp-logo-small.png">
-        </div><br><br>
+        </div>
+        <!-- <br><br> -->
       </div>
-    </center>
+
     <!-- <div style="width:100%;"> -->
-      <center><div id="right">
-        <div id=rightcolor>
+      <div id="right">
+        <div id="rightcolor">
           <ul class="events">
             <h2>Stuff to Do:</h2>
             {% for business in yelp_events.businesses %}
@@ -50,8 +53,9 @@
           </ul>
           powered by <img src="/images/yelp_logo/iOSWeb/yelp-logo-small.png">
         </div>
-      </div></center>
-
+      </div>
+    </center>
+    </div>
     <br>
     <br>
     <br>
@@ -80,11 +84,11 @@
         <br><br> <!-- events[i]['url'], events[i]['name']['html'] -->
         {% endif %}
         {% endfor %}
-    </div></center>
     <br>
     <br>
 <div><button class="button" id="nopeButton"><a href="/nope"><h2>I don't feel like doing any of this</h2><span></span></button></div>
     <br>
+  </div></center>
   </body></center>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"> </script>
