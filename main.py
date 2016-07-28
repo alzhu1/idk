@@ -7,7 +7,6 @@ from yelp.oauth1_authenticator import Oauth1Authenticator
 from google.appengine.api import urlfetch
 import logging
 import json
-import time
 
 auth = Oauth1Authenticator(
     consumer_key='LTaCUjkWSPDy9gnmJRLM7g',
