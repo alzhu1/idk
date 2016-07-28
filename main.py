@@ -8,6 +8,7 @@ from google.appengine.api import urlfetch
 import logging
 import json
 from datetime import datetime
+from datetime import timedelta
 
 auth = Oauth1Authenticator(
     consumer_key='LTaCUjkWSPDy9gnmJRLM7g',
@@ -119,18 +120,21 @@ class SpecificsHandler(webapp2.RequestHandler):
 class NopeHandler(webapp2.RequestHandler):
     def get(self):
         events = Upload.query().order(-Upload.date).fetch()
+        template_values = {'events': events}
+        for event in events:
+            if (datetime.now() - event.date).days >= 7:
+                event.key.delete()
 
-        events = {'events': events}
 
         template = jinja_environment.get_template('nope.html')
-        self.response.write(template.render(events))
+        self.response.write(template.render(template_values))
 
     def post(self):
         eventname = self.request.get('eventname')
         location = self.request.get('location')
         info = self.request.get('info')
 
-        upload = Upload(eventname=eventname, location=location, info=info, date=datetime.now().replace(microsecond=0))
+        upload = Upload(eventname=eventname, location=location, info=info, date=datetime.now())
         upload.put()
 
         self.redirect('/nope')
