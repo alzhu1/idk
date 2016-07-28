@@ -71,7 +71,7 @@
   </ul>
   {% if page == 0 %}
     <a id="link" href="/results?location={{location}}&keywords={{keywords}}&page={{1+(page|int)}}">Next page</a>
-  {% elif page*5 == events['pagination']['page_number'] %}
+  {% elif page == 99 %}
     <a id="link" href="/results?location={{location}}&keywords={{keywords}}&page={{(page|int)-1}}">Previous page</a>
   {% else %}
     <a id="link" href="/results?location={{location}}&keywords={{keywords}}&page={{(page|int)-1}}">Previous page</a>
