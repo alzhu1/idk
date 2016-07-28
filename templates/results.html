@@ -48,13 +48,10 @@
               <br>
             {% endfor %}
           </ul>
-<<<<<<< HEAD
-        </div></div></center>
-
-=======
           powered by <img src="/images/yelp_logo/iOSWeb/yelp-logo-small.png">
         </div>
->>>>>>> 752f86fa081454540d91dbb31889ae76dde797a1
+      </div></center>
+
     <br>
     <br>
     <br>
@@ -66,26 +63,23 @@
     <br>
   <ul style="padding: 0">
 
+<div id="ul">
   {% for i in range((page%5)*10, (page%5)*10+10) %} <!--i in range(page*10, page*10+10) -->
     {% if i < (events['events']|length)%}
-      <img src="{{events['events'][i]['logo']['url']}}"><br> <!-- events[i]['logo']['url'] -->
-      <a href="{{events['events'][i]['url']}}">{{events['events'][i]['name']['html']}}</a> <!-- events[i]['url'], events[i]['name']['html'] -->
+      <img id="li" src="{{events['events'][i]['logo']['url']}}"><br> <!-- events[i]['logo']['url'] -->
+      <a id="li" href="{{events['events'][i]['url']}}">{{events['events'][i]['name']['html']}}</a> <!-- events[i]['url'], events[i]['name']['html'] -->
       <br>
       <br>
       <br>
     {% endif %}
   {% endfor %}
+</div>
 
-  </ul>
   {% if page == 0 %}
   <center>
     <a id="link" href="/results?location={{location}}&keywords={{keywords}}&page={{1+(page|int)}}">Next page</a>
-<<<<<<< HEAD
   </center>
-  {% elif page == events['pagination']['page_number'] %}
-=======
   {% elif page == 99 %}
->>>>>>> 752f86fa081454540d91dbb31889ae76dde797a1
     <a id="link" href="/results?location={{location}}&keywords={{keywords}}&page={{(page|int)-1}}">Previous page</a>
   {% else %}
     <a id="link" href="/results?location={{location}}&keywords={{keywords}}&page={{(page|int)-1}}">Previous page</a>
