@@ -8,6 +8,10 @@ body {
   margin-top: 0;
 }
 
+#contain {
+  overflow: auto;
+}
+
 h1 {
   color: white;
   font-size: 40px;
@@ -134,6 +138,7 @@ p {
 
 #left {
   float: left;
+  /*right: 350px;*/
   width: 49%;
 }
 
@@ -146,7 +151,7 @@ p {
 }
 
 #right {
-  float: right;
+  float: left;
   width: 49%;
 }
 
@@ -210,8 +215,7 @@ a:hover {
   width: 300px;
   height: 100px;
   text-decoration: none;
-  position:relative;
-  margin-top:100%;
+  margin-bottom: 1;
 }
 
 #link {
