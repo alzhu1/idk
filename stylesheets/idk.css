@@ -2,22 +2,6 @@ body {
   margin: 0;
 }
 
-/*#test {
-  float: left;
-}*/
-
-#ul {
-  position: absolute;;
-  margin: 0 auto;
-  text-align: center;
-}
-
-#li {
-  position: absolute;;
-  display: inline-block;
-  vertical-align: top;
-}
-
 #headerblock {
   font-family: Tahoma, Verdana, Segoe, sans-serif;
   background: darkblue;
