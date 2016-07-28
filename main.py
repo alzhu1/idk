@@ -100,6 +100,7 @@ class ResultsHandler(webapp2.RequestHandler):
         eventbrite_response = urlfetch.fetch(EVENTBRITE_URL)
         events = json.loads(eventbrite_response.content)
 
+        logging.info(events)
         foods = client.search(location, **food_params) #dropdown menu or search?
         yelp_events = client.search(location, **event_params)
 
@@ -111,7 +112,6 @@ class ResultsHandler(webapp2.RequestHandler):
             'location':location,
             'page':page
         }
-        logging.info(type(foods)) #REMOVE LATER
         template = jinja_environment.get_template('results.html')
         self.response.write(template.render(template_vals))
 
