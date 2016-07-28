@@ -7,6 +7,7 @@ from yelp.oauth1_authenticator import Oauth1Authenticator
 from google.appengine.api import urlfetch
 import logging
 import json
+from datetime import datetime
 
 auth = Oauth1Authenticator(
     consumer_key='LTaCUjkWSPDy9gnmJRLM7g',
@@ -35,6 +36,7 @@ class Upload(ndb.Model):
     eventname = ndb.StringProperty()
     location = ndb.StringProperty()
     info = ndb.StringProperty()
+    date = ndb.DateTimeProperty(auto_now_add=True)
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
@@ -116,7 +118,7 @@ class SpecificsHandler(webapp2.RequestHandler):
 
 class NopeHandler(webapp2.RequestHandler):
     def get(self):
-        events = Upload.query().fetch()
+        events = Upload.query().order(-Upload.date).fetch()
 
         events = {'events': events}
 
@@ -128,7 +130,7 @@ class NopeHandler(webapp2.RequestHandler):
         location = self.request.get('location')
         info = self.request.get('info')
 
-        upload = Upload(eventname=eventname, location=location, info=info)
+        upload = Upload(eventname=eventname, location=location, info=info, date=datetime.now().replace(microsecond=0))
         upload.put()
 
         self.redirect('/nope')
