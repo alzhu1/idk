@@ -1,3 +1,10 @@
+#headerblock {
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+  background: darkblue;
+  margin-top: 0;
+}
+
+
 h1 {
   color: white;
   font-size: 40px;
@@ -14,9 +21,13 @@ h2 {
 }
 
 h3 {
-  font-size: 30px;
+  margin: 0;
+  font-style: italic;
+  font-size: 15px;
   color: white;
-  text-align: center;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  background: darkblue;
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
 }
 
 h4 {
@@ -31,9 +42,13 @@ ul {
 }
 
 #suggestions {
-  font-family: Tahoma, Verdana, Segoe, sans-serif;
-  background-color: white;
-  width: 500px;
+  margin-top: 50px;
+  margin-left: 5%;
+  max-width: 400px;
+  height: 800px;
+  background: lightblue;
+  border: 2px solid blue;
+  border-radius: 10px
 }
 
 body {
