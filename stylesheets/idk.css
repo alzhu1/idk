@@ -1,15 +1,8 @@
 body {
   margin: 0;
-}
-
-#headerblock {
-  font-family: Tahoma, Verdana, Segoe, sans-serif;
-  background: darkblue;
-  margin-top: 0;
-}
-
-#contain {
-  overflow: auto;
+  background-size: 100vw 100vh;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 h1 {
@@ -35,48 +28,39 @@ h3 {
   font-family: Tahoma, Verdana, Segoe, sans-serif;
 }
 
-#header1 {
-  color: white;
-  font-size: 40px;
-  margin-top: 5px;
-  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-}
-
 h2 span {
     background-color: black;
 }
 
-#header2 {
+p {
+  font-style: italic;
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+}
+
+li {
+  font-size: 20px;
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+  text-decoration: underline;
+}
+
+a:link {
+    color: white;
+    text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
   color: white;
-  font-size: 25px;
-  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+
 }
 
-
-#form1 {
-  width: 500px;
-  height: 420px;
-  padding: 4% 4% 4% 4%;
-  margin: 2% 2% 2% 2%;
-  /*border: 10px solid darkblue;
-  border-radius: 10px;*/
-}
-
-#move {
-  margin-top: 15px
+a:hover {
+  text-decoration: underline;
+  color: white;
 }
 
 .mytext {
     width: 300px;
-}
-
-#form2 {
-  width: 300px;
-  height: 300px;
-  padding: 4% 4% 4% 4%;
-  margin: 2% 2% 2% 2%;
-  border: 10px solid darkblue;
-  border-radius: 10px;
 }
 
 .button {
@@ -120,20 +104,55 @@ h2 span {
   right: 0;
 }
 
-body {
-  background-size: 100vw 100vh;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+.food {
+  padding-left: 0px
 }
 
-li {
-  font-size: 20px;
-  font-family: Tahoma, Verdana, Segoe, sans-serif;
-  text-decoration: underline;
+.events {
+  padding-left: 0px
 }
-p {
-  font-style: italic;
+
+#header1 {
+  color: white;
+  font-size: 40px;
+  margin-top: 5px;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+#header2 {
+  color: white;
+  font-size: 25px;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+#headerblock {
   font-family: Tahoma, Verdana, Segoe, sans-serif;
+  background: darkblue;
+  margin-top: 0;
+}
+
+#form1 {
+  width: 500px;
+  height: 420px;
+  padding: 4% 4% 4% 4%;
+  margin: 2% 2% 2% 2%;
+}
+
+#form2 {
+  width: 300px;
+  height: 300px;
+  padding: 4% 4% 4% 4%;
+  margin: 2% 2% 2% 2%;
+  border: 10px solid darkblue;
+  border-radius: 10px;
+}
+
+#move {
+  margin-top: 15px
+}
+
+#contain {
+  overflow: auto;
 }
 
 #left {
@@ -146,7 +165,7 @@ p {
   margin-left: 25%;
   max-width: 250px;
   background: lightblue;
-  border: 2px solid blue;
+  border: 2px solid darkblue;
   border-radius: 10px
 }
 
@@ -155,20 +174,12 @@ p {
   width: 49%;
 }
 
-.food {
-  padding-left: 0px
-}
-
 #rightcolor {
   margin-right: 25%;
   max-width: 250px;
   background: lightblue;
-  border: 2px solid blue;
+  border: 2px solid darkblue;
   border-radius: 10px
-}
-
-.events {
-  padding-left: 0px
 }
 
 #otherButtons {
@@ -190,22 +201,6 @@ p {
   width: 10em; height: 3em;
 }
 
-a:link {
-    color: white;
-    text-decoration: none;
-}
-
-a:visited {
-  text-decoration: none;
-  color: white;
-
-}
-
-a:hover {
-  text-decoration: underline;
-  color: white;
-}
-
 #eventlink {
   color: white;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
@@ -220,31 +215,48 @@ a:hover {
   padding-right: 20px;
 }
 
-#link {
-  margin: 0;
-  font-style: italic;
-  font-size: 25px;
-  color: white;
-  font-family: Tahoma, Verdana, Segoe, sans-serif;
-}
-
 #nonwhitetext {
   font-size: 15px;
   color: darkblue;
   font-family: Tahoma, Verdana, Segoe, sans-serif;
 }
 
-#eventbrite {
-  font-size: 28px;
+#legibleTag {
   font-weight: bolder;
+  font-style: italic;
+  font-size: 25px;
+  color: black;
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+  background: lightblue;
+  border: 2px solid darkblue;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+#next {
+  font-weight: bolder;
+  font-style: italic;
+  font-size: 25px;
+  text-decoration: underline;
+  color: black;
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+  background: lightblue;
+  border: 2px solid darkblue;
+  border-radius: 10px;
+  padding: 5px;
 }
 
 #background {
   background: lightblue;
-  border: 2px solid blue;
+  border: 2px solid darkblue;
   border-radius: 10px;
-  width: 700px;
+  width: 800px;
   height: 40px;
+  align-self: center;
+}
+
+#imageBorder {
+  border: 2px solid darkblue;
 }
 
 #arrowtext {
