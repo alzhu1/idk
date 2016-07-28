@@ -19,7 +19,6 @@ h1 {
 }
 h2 {
   font-family: Tahoma, Verdana, Segoe, sans-serif;
-  /*text-decoration: underline;*/
 }
 
 h3 {
@@ -99,7 +98,7 @@ h2 span {
   transition: 0.5s;
 }
 
-.button h2:after {
+.button span:after {
   content: ' \00bb';
   position: relative;
   opacity: 0;
@@ -112,7 +111,7 @@ h2 span {
   padding-right: 25px;
 }
 
-.button:hover h2:after {
+.button:hover span:after {
   opacity: 1;
   right: 0;
 }
@@ -168,7 +167,7 @@ p {
 }
 
 #otherButtons {
-  width: 19em;  height: 4em;
+  width: 22em;  height: 4em;
   display: inline-block;
   border-radius: 4px;
   background-color: darkblue;
@@ -199,7 +198,7 @@ a:visited {
 
 a:hover {
   text-decoration: underline;
-  color: cyan;
+  color: white;
 }
 
 #eventlink {
@@ -211,4 +210,12 @@ a:hover {
   width: 300px;
   height: 100px;
   text-decoration: none;
+}
+
+#link {
+  margin: 0;
+  font-style: italic;
+  font-size: 15px;
+  color: white;
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
 }
