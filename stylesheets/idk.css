@@ -19,7 +19,6 @@ h1 {
 }
 h2 {
   font-family: Tahoma, Verdana, Segoe, sans-serif;
-  /*text-decoration: underline;*/
 }
 
 h3 {
@@ -119,6 +118,8 @@ h2 span {
 
 body {
   background-size: 100vw 100vh;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 li {
@@ -197,7 +198,7 @@ a:visited {
 
 a:hover {
   text-decoration: underline;
-  color: cyan;
+  color: white;
 }
 
 #eventlink {

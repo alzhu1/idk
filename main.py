@@ -7,6 +7,7 @@ from yelp.oauth1_authenticator import Oauth1Authenticator
 from google.appengine.api import urlfetch
 import logging
 import json
+import time
 
 auth = Oauth1Authenticator(
     consumer_key='LTaCUjkWSPDy9gnmJRLM7g',
@@ -96,13 +97,11 @@ class ResultsHandler(webapp2.RequestHandler):
         }
         event_page = int(page/5)
         EVENTBRITE_URL = 'https://www.eventbriteapi.com/v3/events/search/?token={}&q={}&location.address={}&location.within=2mi&page={}'.format(EVENTBRITE_TOKEN,keywords,location,1+event_page) #figure out how to incorporate page number
-        logging.info(EVENTBRITE_URL)
         eventbrite_response = urlfetch.fetch(EVENTBRITE_URL)
         events = json.loads(eventbrite_response.content)
 
         foods = client.search(location, **food_params) #dropdown menu or search?
         yelp_events = client.search(location, **event_params)
-        logging.info(events)
 
         template_vals = {
             'foods': foods,

@@ -8,19 +8,28 @@
   <div id=headerblock>
     <a href='/'><h1 id=headerblock>&#128161; IDK &#128161;</h1></a>
   </div>
-  <div><h3>what do you wanna do?</h3>
+  <center><h3>what do you wanna do?</h3></center>
 
-    <div>{% for event in events %}
+  <div id="suggestions">{% for event in events %}
     <ul>
-    <h2>Idea: {{event.eventname}}</2><br>
-    <h4>Where It's At: {{event.location}}</h4><br>
-    <h4>More Details: {{event.info}}</h4><br><br><br>
+      <h2>Idea: {{event.eventname}}</2>
+      <br>
+      <h4>Where It's At: {{event.location}}</h4>
+      <br>
+      <h4>More Details: {{event.info}}</h4>
+      <br>
+      <br>
+      <br>
     </ul>
     {% endfor %}
     <br>
     <br>
     <br>
   </div>
+  
+  <br>
+  <br>
+
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"> </script>
 <script src="scripts/background.js"></script>
