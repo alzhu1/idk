@@ -100,7 +100,6 @@ class ResultsHandler(webapp2.RequestHandler):
         eventbrite_response = urlfetch.fetch(EVENTBRITE_URL)
         events = json.loads(eventbrite_response.content)
 
-        logging.info(events['events'][0])
         foods = client.search(location, **food_params) #dropdown menu or search?
         yelp_events = client.search(location, **event_params)
 
