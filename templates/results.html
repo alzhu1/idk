@@ -54,27 +54,27 @@
           powered by <img src="/images/yelp_logo/iOSWeb/yelp-logo-small.png">
         </div>
       </div>
-    </center>
+    <div>
+      {% if page == 0 %}
+        <a id="link" href="/results?location={{location}}&keywords={{keywords}}&page={{1+(page|int)}}">Next page</a>
+      {% elif page == 99 %}
+        <a id="link" href="/results?location={{location}}&keywords={{keywords}}&page={{(page|int)-1}}">Previous page</a>
+      {% else %}
+        <a id="link" href="/results?location={{location}}&keywords={{keywords}}&page={{(page|int)-1}}">Previous page</a> &nbsp; &nbsp;
+        <a id="link" href="/results?location={{location}}&keywords={{keywords}}&page={{1+(page|int)}}">Next page</a>
+      {% endif %}
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-  <div>
-    {% if page == 0 %}
-      <a id="link" href="/results?location={{location}}&keywords={{keywords}}&page={{1+(page|int)}}">Next page</a>
-    {% elif page == 99 %}
-      <a id="link" href="/results?location={{location}}&keywords={{keywords}}&page={{(page|int)-1}}">Previous page</a>
-    {% else %}
-      <a id="link" href="/results?location={{location}}&keywords={{keywords}}&page={{(page|int)-1}}">Previous page</a>
-      <a id="link" href="/results?location={{location}}&keywords={{keywords}}&page={{1+(page|int)}}">Next page</a>
-    {% endif %}
+  </center>
   </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
-  <br>
-  <br>
-  <br>
+    <br>
+    <br>
+    <br>
 
     <center><div id="eventbriteTable">
       {% for i in range((page%5)*10, (page%5)*10+10) %} <!--i in range(page*10, page*10+10) -->

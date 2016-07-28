@@ -221,7 +221,7 @@ a:hover {
 #link {
   margin: 0;
   font-style: italic;
-  font-size: 15px;
+  font-size: 25px;
   color: white;
   font-family: Tahoma, Verdana, Segoe, sans-serif;
 }
@@ -230,4 +230,9 @@ a:hover {
   font-size: 15px;
   color: darkblue;
   font-family: Tahoma, Verdana, Segoe, sans-serif;
+}
+
+#eventbrite {
+  font-size: 28px;
+  font-weight: bolder;
 }
