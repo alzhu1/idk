@@ -140,9 +140,15 @@ class SubmitIdeaHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('submitIdea.html')
         self.response.write(template.render())
 
+class AboutHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_environment.get_template('about.html')
+        self.response.write(template.render())
+
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/results', ResultsHandler),
     ('/nope', NopeHandler),
-    ('/submitIdea', SubmitIdeaHandler)
+    ('/submitIdea', SubmitIdeaHandler),
+    ('/about', AboutHandler)
 ], debug=True)
