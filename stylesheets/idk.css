@@ -28,6 +28,19 @@ h3 {
   font-family: Tahoma, Verdana, Segoe, sans-serif;
 }
 
+h4 {
+  color: black;
+  font-size: 32px;
+  background: lightblue;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 5px;
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+  text-decoration: underline;
+  font-weight: bolder;
+  width: 600px;
+}
+
 h2 span {
     background-color: black;
 }
@@ -262,4 +275,38 @@ a:hover {
 #arrowtext {
   padding-right: 10px;
   height: 70px
+}
+
+#about {
+  font-style: italic;
+  font-size: 12px;
+  color: white;
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+  background: darkblue;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 5px;
+  border-radius: 10px;
+
+}
+
+#bio {
+  font-size: 14px;
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+  width: 450px;
+  background: lightblue;
+  border: 2px solid black;
+  padding: 5px;
+}
+
+#aria {
+  background: rgb(12, 235, 38);
+}
+
+#erick {
+  background: rgb(235, 6, 14);
+}
+
+#alexiscool {
+  background: rgb(50, 100, 230);
 }
