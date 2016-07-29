@@ -88,7 +88,7 @@ a:hover {
 
 .button span:after {
   content: ' \00bb';
-  position: relative;
+  position: inline-block;
   opacity: 0;
   top: 0;
   right: -20px;
@@ -211,6 +211,8 @@ a:hover {
   height: 100px;
   text-decoration: none;
   margin-bottom: 1;
+  font-size: 1.5em;
+  padding-right: 20px;
 }
 
 #nonwhitetext {
@@ -255,4 +257,9 @@ a:hover {
 
 #imageBorder {
   border: 2px solid darkblue;
+}
+
+#arrowtext {
+  padding-right: 10px;
+  height: 70px
 }
